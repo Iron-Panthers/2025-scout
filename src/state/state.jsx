@@ -25,8 +25,11 @@ export const useSettings = () => {
 };
 
 const Provider = ({ children }) => {
-  [state, dispatch] = useReducer(stateReducer, initialState);
-  [settings, settingsDispatch] = useReducer(settingsReducer, initialSettings);
+  const [state, dispatch] = useReducer(stateReducer, initialState);
+  const [settings, settingsDispatch] = useReducer(
+    settingsReducer,
+    initialSettings
+  );
 
   return (
     <AppStateContext.Provider value={[state, dispatch]}>
