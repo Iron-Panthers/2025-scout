@@ -1,6 +1,6 @@
 export const initialState = {
   // full app state
-  mode: "Configure", // Configure, Scout, Review, ScanData, Settings, ConfigQualitative, Qualitative
+  mode: "Configure", // Configure, Scout, Review, ScanData, Settings, ConfigureQualitative, Qualitative
 
   // configuration state
   team: undefined, // e.g. 5026
@@ -40,10 +40,21 @@ export const stateReducer = (state, action) => {
       // do stuff to the state based on the current mode
       // e.g. if mode is Configure, change to Scout
       // but if the scouting type is qualitative, change to Qualitative
-      return state;
+
+      // check the current modes that we care about
+      const modes =
+        state.scoutingType === "match"
+          ? ["Configure", "Scout", "Review"]
+          : state.scoutingType === "qualitative"
+          ? ["ConfigureQualitative", "Qualitative", "Review"]
+          : ["you fucked up"];
+      return {
+        ...state,
+        mode: modes[(modes.indexOf(state.mode) + 1) % modes.length],
+      };
     case "SET_PHASE":
       // set our phase to be the phase specified
-      return state;
+      return { ...state, phase: action.phase };
     default:
       return state;
   }

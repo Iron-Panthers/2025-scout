@@ -1,10 +1,13 @@
+import CurrentMode from "./components/CurrentMode";
 import Layout from "./hoc/Layout";
 import Provider from "./state/state";
 
 function App() {
   return (
     <Provider>
-      <Layout>App</Layout>;
+      <Layout>
+        <CurrentMode />
+      </Layout>
     </Provider>
   );
 }
