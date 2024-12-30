@@ -10,6 +10,13 @@ export default {
         "grey-primary": "#CCCCCC",
         "black-primary": "#1A1A1A",
         "off-black": "#333333",
+        // actual app colors
+        "red-warning": "#ef4444",
+        "red-error": "#dc2626",
+        "green-confirm": "##4ade80",
+        "neutral-blue": "#38bdf8",
+        "bg-dark": "#1A1A1A",
+        "bg-light": "#FFFFFF",
       },
       fontFamily: {
         brand: ["Teko", "sans-serif"],
