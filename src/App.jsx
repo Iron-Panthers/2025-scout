@@ -1,5 +1,7 @@
+import Layout from "./hoc/Layout";
+
 function App() {
-  return <div>This is our app rn</div>;
+  return <Layout>This is still our app rn</Layout>;
 }
 
 export default App;
