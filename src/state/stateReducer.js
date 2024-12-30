@@ -28,7 +28,6 @@ export const initialState = {
 
 // action.type is the type of action that is being dispatched
 export const stateReducer = (state, action) => {
-  //add functionalities here
   switch (action.type) {
     case "SET":
       return { ...state, ...action.payload }; // handle the undo stuff later - if it don't work than thats my bad

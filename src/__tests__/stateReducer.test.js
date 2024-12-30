@@ -13,7 +13,7 @@ describe("SET", () => {
 
 describe("RESET", () => {
   it("should reset the state", () => {
-    let newState = initialState;
+    let newState = { ...initialState };
     newState.defense = true;
     const action = { type: "RESET" };
     newState = stateReducer(newState, action);
@@ -50,5 +50,16 @@ describe("SET_PHASE", () => {
     const action = { type: "SET_PHASE", phase: "teleop" };
     const newState = stateReducer(initialState, action);
     expect(newState.phase).toBe("teleop");
+  });
+});
+
+describe("default", () => {
+  it("should return the state", () => {
+    const initialState = {
+      defense: false,
+    };
+    const action = { type: "INVALID" };
+    const newState = stateReducer(initialState, action);
+    expect(newState).toEqual(initialState);
   });
 });
