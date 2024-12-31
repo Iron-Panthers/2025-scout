@@ -1,7 +1,10 @@
 import React from "react";
 import Button from "./inputs/Button";
+import { useAppState } from "../state/state";
 
 const Scout = () => {
+  const [state, dispatch] = useAppState();
+
   return (
     //do more here during on-season
     <div>

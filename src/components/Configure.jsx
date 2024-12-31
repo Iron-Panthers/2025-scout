@@ -11,7 +11,12 @@ const Configure = () => {
   const handleTeamNumberAutofill = () => {};
 
   const canGoNext = () => {
-    if (!state.scouterName || !state.scouterID || !state.role) {
+    if (
+      !state.scouterName ||
+      !state.scouterID ||
+      !state.role ||
+      !state.matchNumber
+    ) {
       return false;
     }
     if (state.scoutingType === "qualitative") {
@@ -147,11 +152,11 @@ const Configure = () => {
         </div>
       </div>
       {/* Buttons on the right side */}
-      <div className="w-full sm:w-20 flex flex-row sm:flex-col justify-between p-1">
+      <div className="w-full sm:w-20 flex flex-row sm:flex-col p-1">
         <Button
           label={"⚙️"}
           color="blue"
-          className="text-3xl"
+          className="text-3xl flex-grow"
           onClick={() => {
             dispatch({ type: "SET", payload: { mode: "Settings" } });
           }}
@@ -163,7 +168,7 @@ const Configure = () => {
             dispatch({ type: "NEXT_MODE" });
             console.log(state);
           }}
-          className={"h-20"}
+          className={"flex-grow"}
           disabled={!canGoNext()}
         />
       </div>

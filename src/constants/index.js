@@ -5,6 +5,7 @@ const modes = [
   "ScanData",
   "Settings",
   "Qualitative",
+  "Edit",
 ];
 
 const roles = [
@@ -25,4 +26,10 @@ const matchTypes = [
   { value: "finals", label: "Finals" },
 ];
 
-export { modes, roles, matchTypes };
+const reviewToggles = [
+  { key: "defense", label: "Defense" },
+  { key: "robotProblems", label: "Robot Problems" },
+  { key: "hasScoutingErrors", label: "Scouting Errors" },
+];
+
+export { modes, roles, matchTypes, reviewToggles };

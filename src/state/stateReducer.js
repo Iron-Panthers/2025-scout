@@ -6,7 +6,7 @@ const qualitativeTeam = {
 
 export const initialState = {
   // full app state
-  mode: "Configure", // Configure, Scout, Review, ScanData, Settings, Qualitative
+  mode: "Configure", // Configure, Scout, Review, ScanData, Settings, Qualitative, Edit
 
   // configuration state
   team: undefined, // e.g. 5026
@@ -33,7 +33,9 @@ export const initialState = {
 
   // review state
   defense: false,
-  scoutingErrors: false, // maybe change to something else
+  robotProblems: false,
+  hasScoutingErrors: false,
+  scoutingErrors: "",
   comments: "",
 };
 // the MODE is the current page that the user is on
@@ -44,6 +46,8 @@ export const stateReducer = (state, action) => {
   switch (action.type) {
     case "SET":
       return { ...state, ...action.payload }; // handle the undo stuff later - if it don't work than thats my bad
+    case "TOGGLE":
+      return { ...state, [action.payload]: !state[action.payload] };
     case "RESET":
       // do other stuff to the initial state based on settings here
       // e.g. increase match number by one, save scouter name, etc.
@@ -56,9 +60,9 @@ export const stateReducer = (state, action) => {
       // check the current modes that we care about
       const modes =
         state.scoutingType === "match"
-          ? ["Configure", "Scout", "Review"]
+          ? ["Configure", "Scout", "Review", "ScanData"]
           : state.scoutingType === "qualitative"
-          ? ["Configure", "Qualitative", "Review"]
+          ? ["Configure", "Qualitative", "Review", "ScanData"]
           : ["you fucked up"];
       return {
         ...state,
