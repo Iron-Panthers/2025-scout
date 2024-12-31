@@ -40,7 +40,7 @@ const DropdownInput = ({
         value={stateProp ? state[stateProp] : value}
         onChange={handleChange}
         {...rest}
-        className="rounded-md border border-dark flex-grow"
+        className="rounded-md border border-dark bg-white dark:border-light dark:bg-black flex-grow"
       >
         {options.map((option, index) => (
           <option key={index} value={option.value}>
