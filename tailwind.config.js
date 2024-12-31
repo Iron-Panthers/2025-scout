@@ -13,10 +13,10 @@ export default {
         // actual app colors
         "red-warning": "#ef4444",
         "red-error": "#dc2626",
-        "green-confirm": "##4ade80",
+        "green-confirm": "#4ade80",
         "neutral-blue": "#38bdf8",
-        "bg-dark": "#1A1A1A",
-        "bg-light": "#FFFFFF",
+        dark: "#1A1A1A",
+        light: "#F5F5F5",
       },
       fontFamily: {
         brand: ["Teko", "sans-serif"],

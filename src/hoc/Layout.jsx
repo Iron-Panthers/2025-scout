@@ -6,7 +6,7 @@ const Layout = ({ children }) => {
 
   return (
     <div className={settings.darkMode ? "dark" : ""}>
-      <div className="font-body bg-white dark:bg-black-primary text-black dark:text-white w-screen h-screen">
+      <div className="font-body bg-light dark:bg-dark text-black dark:text-white w-screen h-screen">
         {children}
       </div>
     </div>

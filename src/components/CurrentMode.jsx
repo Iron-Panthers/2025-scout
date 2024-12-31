@@ -1,12 +1,13 @@
 import React, { useMemo } from "react";
 import { useAppState } from "../state/state";
+import Configure from "./Configure";
 
 const CurrentMode = () => {
   const [state, dispatch] = useAppState();
   const renderedMode = useMemo(() => {
     switch (state.mode) {
       case "Configure":
-        return <div>App</div>;
+        return <Configure />;
       case "Scout":
         return <div></div>;
       case "Review":

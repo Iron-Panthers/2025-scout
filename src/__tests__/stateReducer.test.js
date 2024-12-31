@@ -53,6 +53,21 @@ describe("SET_PHASE", () => {
   });
 });
 
+describe("SET_IN_QUAL", () => {
+  it("should set the team in the qualitative team array", () => {
+    const initialState = {
+      qualitativeTeams: [{ team: 5026 }, { team: 5027 }, { team: 5028 }],
+    };
+    const action = {
+      type: "SET_IN_QUAL",
+      index: 1,
+      payload: { team: 5029 },
+    };
+    const newState = stateReducer(initialState, action);
+    expect(newState.qualitativeTeams[1].team).toBe(5029);
+  });
+});
+
 describe("default", () => {
   it("should return the state", () => {
     const initialState = {

@@ -1,11 +1,19 @@
+const qualitativeTeam = {
+  team: undefined, // e.g. 5026
+  quickness: 1, // 1-3
+  defense: 1, // 1-3
+};
+
 export const initialState = {
   // full app state
-  mode: "Configure", // Configure, Scout, Review, ScanData, Settings, ConfigureQualitative, Qualitative
+  mode: "Configure", // Configure, Scout, Review, ScanData, Settings, Qualitative
 
   // configuration state
   team: undefined, // e.g. 5026
   matchNumber: undefined, // e.g. 72
   scouterName: "", // e.g. "Bruce 'the skibidi' Peters"
+  scouterID: "", // e.g. "123456"
+  role: "blue1", // blue1, blue2, blue3, blueQualitative, red1, red2, red3, redQualitative
   matchType: "qualification", // practice, qualification, semifinals, finals
   scoutingType: "match", // match, qualitative
 
@@ -16,7 +24,11 @@ export const initialState = {
   endgame: {}, // endgame phase data
 
   // qualitative scout state
-  teamQualitative: [], // qualitative data for the teams - should be an array of three objects
+  qualitativeTeams: [
+    { ...qualitativeTeam },
+    { ...qualitativeTeam },
+    { ...qualitativeTeam },
+  ], // qualitative data for the teams - should be an array of three objects
 
   // review state
   defense: false,
@@ -54,6 +66,14 @@ export const stateReducer = (state, action) => {
     case "SET_PHASE":
       // set our phase to be the phase specified
       return { ...state, phase: action.phase };
+    case "SET_IN_QUAL":
+      // set the team in the qualitative team array at the index specified
+      return {
+        ...state,
+        qualitativeTeams: state.qualitativeTeams.map((team, index) =>
+          index === action.index ? { ...team, ...action.payload } : team
+        ),
+      };
     default:
       return state;
   }
