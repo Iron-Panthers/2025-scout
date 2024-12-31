@@ -120,10 +120,10 @@ const Configure = () => {
         </div>
       </div>
       {/* Buttons on the right side */}
-      <div className="w-20 flex flex-col justify-between">
+      <div className="w-20 flex flex-col justify-between p-1">
         <Button
           label={"⚙️"}
-          color="green"
+          color="blue"
           className="text-3xl"
           onClick={() => {
             dispatch({ type: "SET", payload: { mode: "Settings" } });

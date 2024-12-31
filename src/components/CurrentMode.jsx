@@ -1,6 +1,7 @@
 import React, { useMemo } from "react";
 import { useAppState } from "../state/state";
 import Configure from "./Configure";
+import Settings from "./Settings";
 
 const CurrentMode = () => {
   const [state, dispatch] = useAppState();
@@ -17,7 +18,7 @@ const CurrentMode = () => {
       case "Qualitative":
         return <div></div>;
       case "Settings":
-        return <div></div>;
+        return <Settings />;
       case "ScanData":
         return <div></div>;
       default:
