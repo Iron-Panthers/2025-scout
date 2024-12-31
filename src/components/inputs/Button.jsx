@@ -1,6 +1,13 @@
 import React from "react";
 
-const Button = ({ color = "blue", label, onClick, className, ...rest }) => {
+const Button = ({
+  color = "blue",
+  label,
+  onClick,
+  className,
+  children,
+  ...rest
+}) => {
   const colorVariants = {
     blue: "bg-blue-500 border-blue-500 text-white bg-opacity-90 dark:bg-opacity-50 hover:bg-opacity-90",
     red: "bg-red-warning border-red-warning text-white bg-opacity-90 dark:bg-opacity-50 hover:bg-opacity-90",
@@ -18,7 +25,7 @@ const Button = ({ color = "blue", label, onClick, className, ...rest }) => {
       onClick={onClick ?? (() => {})}
       {...rest}
     >
-      {label}
+      {children ?? label}
     </button>
   );
 };

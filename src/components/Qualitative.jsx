@@ -2,6 +2,7 @@ import React from "react";
 import { useAppState } from "../state/state";
 import QualitativeOption from "./inputs/QualitativeOption";
 import Button from "./inputs/Button";
+import NextButton from "./inputs/button_variants/NextButton";
 
 const Qualitative = () => {
   const [state, dispatch] = useAppState();
@@ -40,14 +41,7 @@ const Qualitative = () => {
           </>
         ))}
       </div>
-      <Button
-        className={"w-full h-1/6"}
-        label={"Next"}
-        color="green"
-        onClick={() => {
-          dispatch({ type: "NEXT_MODE" });
-        }}
-      />
+      <NextButton className={"w-full h-1/6"} />
     </div>
   );
 };

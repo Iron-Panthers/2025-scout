@@ -5,6 +5,8 @@ import Settings from "./Settings";
 import Qualitative from "./Qualitative";
 import Scout from "./Scout";
 import Review from "./Review";
+import ScanData from "./ScanData";
+import Edit from "./Edit";
 
 const CurrentMode = () => {
   const [state, dispatch] = useAppState();
@@ -16,16 +18,14 @@ const CurrentMode = () => {
         return <Scout />;
       case "Review":
         return <Review />;
-      case "ConfigureQualitative":
-        return <div></div>;
       case "Qualitative":
         return <Qualitative />;
       case "Settings":
         return <Settings />;
       case "ScanData":
-        return <div></div>;
+        return <ScanData />;
       case "Edit":
-        return <div>Edit</div>;
+        return <Edit />;
       default:
         return (
           <div>

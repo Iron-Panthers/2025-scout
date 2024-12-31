@@ -4,6 +4,7 @@ import { useAppState } from "../state/state";
 import DropdownInput from "./inputs/DropdownInput";
 import { matchTypes, roles } from "../constants";
 import Button from "./inputs/Button";
+import NextButton from "./inputs/button_variants/NextButton";
 
 const Configure = () => {
   const [state, dispatch] = useAppState();
@@ -161,16 +162,7 @@ const Configure = () => {
             dispatch({ type: "SET", payload: { mode: "Settings" } });
           }}
         />
-        <Button
-          label={"Next"}
-          color="green"
-          onClick={() => {
-            dispatch({ type: "NEXT_MODE" });
-            console.log(state);
-          }}
-          className={"flex-grow"}
-          disabled={!canGoNext()}
-        />
+        <NextButton className={"flex-grow"} disabled={!canGoNext()} />
       </div>
     </div>
   );

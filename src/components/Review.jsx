@@ -4,6 +4,7 @@ import { reviewToggles } from "../constants";
 import { useAppState } from "../state/state";
 import LongTextInput from "./inputs/LongTextInput";
 import Button from "./inputs/Button";
+import NextButton from "./inputs/button_variants/NextButton";
 
 const Review = () => {
   const [state, dispatch] = useAppState();
@@ -51,15 +52,7 @@ const Review = () => {
           }}
           className={"flex-grow"}
         />
-        <Button
-          label={"Next"}
-          color="green"
-          onClick={() => {
-            dispatch({ type: "NEXT_MODE" });
-            console.log(state);
-          }}
-          className={"flex-grow"}
-        />
+        <NextButton className={"flex-grow"} />
       </div>
     </div>
   );

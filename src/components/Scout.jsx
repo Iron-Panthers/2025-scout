@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "./inputs/Button";
 import { useAppState } from "../state/state";
+import NextButton from "./inputs/button_variants/NextButton";
 
 const Scout = () => {
   const [state, dispatch] = useAppState();
@@ -9,14 +10,7 @@ const Scout = () => {
     //do more here during on-season
     <div>
       <h1>Scout</h1>
-      <Button
-        label="Next"
-        color="green"
-        className={"absolute w-full bottom-0"}
-        onClick={() => {
-          dispatch({ type: "NEXT_MODE" });
-        }}
-      />
+      <NextButton className={"absolute w-full bottom-0"} />
     </div>
   );
 };
