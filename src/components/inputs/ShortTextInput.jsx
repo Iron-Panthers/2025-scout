@@ -42,7 +42,7 @@ const ShortTextInput = ({
         placeholder={placeholder ?? label}
         value={(stateProp ? state[stateProp] : value) ?? ""} // if were given a state prop, we use that, otherwise we use the value prop
         onChange={handleChange}
-        className="rounded-md border border-dark dark:border-light dark:bg-black flex-grow px-1"
+        className="rounded-md w-full border border-dark dark:border-light dark:bg-black flex-grow px-1"
         {...rest}
       />
     </div>

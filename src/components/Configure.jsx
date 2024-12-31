@@ -24,11 +24,11 @@ const Configure = () => {
   return (
     <div className="h-full w-full flex flex-row">
       {/* Main Body */}
-      <div className="grow flex flex-col">
+      <div className="grow flex flex-col p-1 gap-1">
         {/* Scouter Info Section */}
-        <div className="border-2 border-dark rounded-lg m-1">
+        <div className="border-2 border-dark rounded-lg">
           <div className="text-sm ml-1">Scouter Information</div>
-          <div className="flex flex-row justify-evenly h-16 p-2">
+          <div className="flex flex-row justify-between h-16 p-2">
             <ShortTextInput
               label="Scouter Name"
               placeholder={"Enter your name here"}
@@ -81,11 +81,11 @@ const Configure = () => {
           </div>
         </div>
         {/* Match info section */}
-        <div className="border-2 border-dark rounded-lg m-1 flex-grow">
+        <div className="border-2 border-dark rounded-lg flex-grow">
           <div className="text-sm ml-1 justify-self-start">
             Match Information
           </div>
-          <div className="flex flex-col justify-stretch">
+          <div className="flex flex-col justify-start">
             <div className="flex flex-row justify-evenly h-20 p-2">
               <ShortTextInput
                 label={"Match Number"}
@@ -101,7 +101,7 @@ const Configure = () => {
             </div>
             {state.scoutingType === "qualitative" ? (
               <div className="flex flex-col justify-evenly">
-                <div className="flex flex-row justify-evenly h-20 p-2">
+                <div className="flex flex-row justify-evenly h-20 p-2 gap-2">
                   {state.qualitativeTeams.map((team, index) => (
                     <ShortTextInput
                       label={"Team " + (index + 1) + " number"}
