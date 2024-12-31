@@ -11,12 +11,19 @@ const Qualitative = () => {
   return (
     <div className="flex flex-col h-full">
       <div className="grid grid-cols-[100px_auto_auto] grid-rows-[50px_auto_auto_auto] text-center flex-grow">
-        <div className={border}>Team</div>
-        <div className={border}>Quickness</div>
-        <div className={border}>Field Awareness</div>
+        <div className={border} key={"team"}>
+          Team
+        </div>
+        <div className={border} key={"quickness"}>
+          Quickness
+        </div>
+        <div className={border} key={"fieldAwareness"}>
+          Field Awareness
+        </div>
         {state.qualitativeTeams.map((team, index) => (
           <>
             <div
+              key={"team" + index}
               className={
                 border +
                 " flex flex-col justify-center text-2xl font-bold relative bg-opacity-30 " +
@@ -29,11 +36,13 @@ const Qualitative = () => {
               <div>{team.team}</div>
             </div>
             <QualitativeOption
+              key={"quickness" + index}
               className={border}
               team={team}
               stateProp={"quickness"}
             />
             <QualitativeOption
+              key={"fieldAwareness" + index}
               className={border}
               team={team}
               stateProp={"fieldAwareness"}

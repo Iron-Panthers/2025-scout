@@ -8,7 +8,7 @@ const ScanData = () => {
   const [state, dispatch] = useAppState();
 
   return (
-    <div className="text-2xl flex flex-row h-full w-full">
+    <div className="text-2xl flex flex-col sm:flex-row h-full w-full">
       {/* Reset Button */}
       <ResetButton
         onClick={() => {

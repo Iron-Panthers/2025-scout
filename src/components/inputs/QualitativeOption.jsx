@@ -22,6 +22,7 @@ const QualitativeOption = ({ team, stateProp, className }) => {
 
         return (
           <button
+            key={index}
             className={
               color +
               " border-2 font-bold rounded-lg transition-all duration-100 flex-grow " +
