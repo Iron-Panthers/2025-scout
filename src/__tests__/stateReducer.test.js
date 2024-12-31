@@ -33,7 +33,7 @@ describe("NEXT_MODE", () => {
   });
   it("should change the mode in qualitative scout", () => {
     const initialState = {
-      mode: "ConfigureQualitative",
+      mode: "Configure",
       scoutingType: "qualitative",
     };
     const action = { type: "NEXT_MODE" };

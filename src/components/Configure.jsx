@@ -10,6 +10,17 @@ const Configure = () => {
 
   const handleTeamNumberAutofill = () => {};
 
+  const canGoNext = () => {
+    if (!state.scouterName || !state.scouterID || !state.role) {
+      return false;
+    }
+    if (state.scoutingType === "qualitative") {
+      return state.qualitativeTeams.every((team) => team.team);
+    } else {
+      return state.team;
+    }
+  };
+
   return (
     <div className="h-full w-full flex flex-row">
       {/* Main Body */}
@@ -35,6 +46,7 @@ const Configure = () => {
               stateProp={"role"}
               onChange={(e) => {
                 if (e.target.value.includes("Qualitative")) {
+                  //check qualitative vs match
                   dispatch({
                     type: "SET",
                     payload: {
@@ -49,6 +61,21 @@ const Configure = () => {
                     },
                   });
                 }
+                if (e.target.value.includes("blue")) {
+                  dispatch({
+                    type: "SET",
+                    payload: {
+                      alliance: "blue",
+                    },
+                  });
+                } else {
+                  dispatch({
+                    type: "SET",
+                    payload: {
+                      alliance: "red",
+                    },
+                  });
+                }
               }}
             />
           </div>
@@ -58,7 +85,7 @@ const Configure = () => {
           <div className="text-sm ml-1 justify-self-start">
             Match Information
           </div>
-          <div className="flex flex-col justify-evenly">
+          <div className="flex flex-col justify-stretch">
             <div className="flex flex-row justify-evenly h-20 p-2">
               <ShortTextInput
                 label={"Match Number"}
@@ -79,11 +106,11 @@ const Configure = () => {
                     <ShortTextInput
                       label={"Team " + (index + 1) + " number"}
                       placeholder={"Enter team number here"}
-                      onChange={() => {
+                      onChange={(e) => {
                         dispatch({
                           type: "SET_IN_QUAL",
                           index: index,
-                          payload: { team: team.team },
+                          payload: { team: e.target.value },
                         });
                       }}
                       value={team.team}
@@ -137,6 +164,7 @@ const Configure = () => {
             console.log(state);
           }}
           className={"h-20"}
+          disabled={!canGoNext()}
         />
       </div>
     </div>

@@ -22,7 +22,7 @@ const Settings = () => {
           return (
             <div key={index} className="m-2">
               {settingInfo.type === "boolean" ? (
-                <label class="inline-flex items-center cursor-pointer">
+                <label className="inline-flex items-center cursor-pointer">
                   <input
                     type="checkbox"
                     value=""

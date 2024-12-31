@@ -1,12 +1,12 @@
 const qualitativeTeam = {
   team: undefined, // e.g. 5026
   quickness: 1, // 1-3
-  defense: 1, // 1-3
+  fieldAwareness: 1, // 1-3
 };
 
 export const initialState = {
   // full app state
-  mode: "Settings", // Configure, Scout, Review, ScanData, Settings, Qualitative
+  mode: "Configure", // Configure, Scout, Review, ScanData, Settings, Qualitative
 
   // configuration state
   team: undefined, // e.g. 5026
@@ -15,6 +15,7 @@ export const initialState = {
   scouterID: "", // e.g. "123456"
   role: "blue1", // blue1, blue2, blue3, blueQualitative, red1, red2, red3, redQualitative
   matchType: "qualification", // practice, qualification, semifinals, finals
+  alliance: "blue", // blue, red
   scoutingType: "match", // match, qualitative
 
   // match scout state
@@ -57,7 +58,7 @@ export const stateReducer = (state, action) => {
         state.scoutingType === "match"
           ? ["Configure", "Scout", "Review"]
           : state.scoutingType === "qualitative"
-          ? ["ConfigureQualitative", "Qualitative", "Review"]
+          ? ["Configure", "Qualitative", "Review"]
           : ["you fucked up"];
       return {
         ...state,
