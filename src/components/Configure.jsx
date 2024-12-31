@@ -87,77 +87,68 @@ const Configure = () => {
           </div>
         </div>
         {/* Match info section */}
-        <div className="border-2 border-dark rounded-lg flex-grow">
+        <div className="border-2 border-dark rounded-lg flex-grow flex flex-col justify-between ">
           <div className="text-sm ml-1 justify-self-start">
             Match Information
           </div>
-          <div className="flex flex-col justify-start">
-            <div className="flex flex-col sm:flex-row justify-evenly sm:h-20 gap-2 p-2">
-              <ShortTextInput
-                label={"Match Number"}
-                placeholder={"Enter the match # here"}
-                stateProp={"matchNumber"}
-                type="number"
-              />
-              <DropdownInput
-                label={"Match Type"}
-                options={matchTypes}
-                stateProp={"matchType"}
-              />
-            </div>
-            {state.scoutingType === "qualitative" ? (
-              <div className="flex flex-col justify-evenly">
-                <div className="flex flex-col sm:flex-row justify-evenly sm:h-20 p-2 gap-2">
-                  {state.qualitativeTeams.map((team, index) => (
-                    <ShortTextInput
-                      label={"Team " + (index + 1) + " number"}
-                      placeholder={"Enter team number here"}
-                      onChange={(e) => {
-                        dispatch({
-                          type: "SET_IN_QUAL",
-                          index: index,
-                          payload: { team: e.target.value },
-                        });
-                      }}
-                      value={team.team}
-                      key={index}
-                      type="number"
-                    />
-                  ))}
-                </div>
-                <Button
-                  label={"Autofill Team Numbers"}
-                  onClick={handleTeamNumberAutofill}
-                  disabled={!state.matchNumber}
-                  className={"m-2"}
-                />
-              </div>
-            ) : (
-              <div className="flex flex-col justify-evenly">
+          <div className="flex flex-col sm:flex-row justify-evenly sm:h-20 gap-2 p-2">
+            <ShortTextInput
+              label={"Match Number"}
+              placeholder={"Enter the match # here"}
+              stateProp={"matchNumber"}
+              type="number"
+            />
+            <DropdownInput
+              label={"Match Type"}
+              options={matchTypes}
+              stateProp={"matchType"}
+            />
+          </div>
+          {state.scoutingType === "qualitative" ? (
+            <div className="flex flex-col sm:flex-row justify-evenly sm:h-20 p-2 gap-2">
+              {state.qualitativeTeams.map((team, index) => (
                 <ShortTextInput
-                  label={"Team Number"}
+                  label={"Team " + (index + 1) + " number"}
                   placeholder={"Enter team number here"}
-                  stateProp={"team"}
-                  className={"p-2 h-20"}
+                  onChange={(e) => {
+                    dispatch({
+                      type: "SET_IN_QUAL",
+                      index: index,
+                      payload: { team: e.target.value },
+                    });
+                  }}
+                  value={team.team}
+                  key={index}
                   type="number"
                 />
-                <Button
-                  label={"Autofill Team Number"}
-                  onClick={handleTeamNumberAutofill}
-                  disabled={!state.matchNumber}
-                  className={"m-2"}
-                />
-              </div>
-            )}
-          </div>
+              ))}
+            </div>
+          ) : (
+            <ShortTextInput
+              label={"Team Number"}
+              placeholder={"Enter team number here"}
+              stateProp={"team"}
+              className={"p-2 h-20"}
+              type="number"
+            />
+          )}
+          <Button
+            label={
+              "Autofill Team Number" +
+              (state.scoutingType === "qualitative" ? "s" : "")
+            }
+            onClick={handleTeamNumberAutofill}
+            disabled={!state.matchNumber}
+            className={"m-2"}
+          />
         </div>
       </div>
       {/* Buttons on the right side */}
-      <div className="w-full sm:w-20 flex flex-row sm:flex-col p-1">
+      <div className="w-full min-w-20 sm:w-[10%] flex flex-row sm:flex-col p-1">
         <Button
           label={"⚙️"}
           color="blue"
-          className="text-3xl flex-grow"
+          className="text-2xl flex-grow"
           onClick={() => {
             dispatch({ type: "SET", payload: { mode: "Settings" } });
           }}
