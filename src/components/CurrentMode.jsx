@@ -3,6 +3,7 @@ import { useAppState } from "../state/state";
 import Configure from "./Configure";
 import Settings from "./Settings";
 import Qualitative from "./Qualitative";
+import Scout from "./Scout";
 
 const CurrentMode = () => {
   const [state, dispatch] = useAppState();
@@ -11,7 +12,7 @@ const CurrentMode = () => {
       case "Configure":
         return <Configure />;
       case "Scout":
-        return <div></div>;
+        return <Scout />;
       case "Review":
         return <div></div>;
       case "ConfigureQualitative":

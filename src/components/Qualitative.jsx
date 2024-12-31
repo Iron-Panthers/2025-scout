@@ -41,7 +41,7 @@ const Qualitative = () => {
         ))}
       </div>
       <Button
-        className={"w-full h-10"}
+        className={"w-full h-1/6"}
         label={"Next"}
         color="green"
         onClick={() => {

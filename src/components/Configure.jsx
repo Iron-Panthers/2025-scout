@@ -22,13 +22,13 @@ const Configure = () => {
   };
 
   return (
-    <div className="h-full w-full flex flex-row">
+    <div className="h-full w-full flex flex-col sm:flex-row text-lg">
       {/* Main Body */}
       <div className="grow flex flex-col p-1 gap-1">
         {/* Scouter Info Section */}
         <div className="border-2 border-dark rounded-lg">
           <div className="text-sm ml-1">Scouter Information</div>
-          <div className="flex flex-row justify-between h-16 p-2">
+          <div className="flex flex-col sm:flex-row justify-between p-2">
             <ShortTextInput
               label="Scouter Name"
               placeholder={"Enter your name here"}
@@ -86,7 +86,7 @@ const Configure = () => {
             Match Information
           </div>
           <div className="flex flex-col justify-start">
-            <div className="flex flex-row justify-evenly h-20 p-2">
+            <div className="flex flex-col sm:flex-row justify-evenly sm:h-20 gap-2 p-2">
               <ShortTextInput
                 label={"Match Number"}
                 placeholder={"Enter the match # here"}
@@ -101,7 +101,7 @@ const Configure = () => {
             </div>
             {state.scoutingType === "qualitative" ? (
               <div className="flex flex-col justify-evenly">
-                <div className="flex flex-row justify-evenly h-20 p-2 gap-2">
+                <div className="flex flex-col sm:flex-row justify-evenly sm:h-20 p-2 gap-2">
                   {state.qualitativeTeams.map((team, index) => (
                     <ShortTextInput
                       label={"Team " + (index + 1) + " number"}
@@ -147,7 +147,7 @@ const Configure = () => {
         </div>
       </div>
       {/* Buttons on the right side */}
-      <div className="w-20 flex flex-col justify-between p-1">
+      <div className="w-full sm:w-20 flex flex-row sm:flex-col justify-between p-1">
         <Button
           label={"⚙️"}
           color="blue"
