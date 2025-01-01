@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ShortTextInput from "./inputs/ShortTextInput";
-import { useAppState } from "../state/state";
+import { useAppState, useSettings } from "../state/state";
 import DropdownInput from "./inputs/DropdownInput";
 import { matchLevels, roles } from "../constants";
 import Button from "./inputs/Button";
@@ -12,44 +12,48 @@ import {
 
 const Configure = () => {
   const [state, dispatch] = useAppState();
+  const [settings, settingsDispatch] = useSettings();
 
-  const handleTeamNumberAutofill = () => {
+  // handle autofilling team number without button press
+  useEffect(() => {
+    if (settings.autoAutofillTeamNumber && canAutofillTeamNumber()) {
+      handleTeamNumberAutofill();
+    }
+  }, [state.matchNumber, state.matchLevel, state.role]);
+
+  // handle autofilling team number
+  const handleTeamNumberAutofill = async () => {
     console.log("Autofilling team number");
-    if (state.scoutingType === "qualitative") {
-      getAllianceNumbersFromMatchInfo(
-        state.matchNumber,
-        state.matchLevel,
-        state.alliance
-      )
-        .then((teamNumbers) => {
-          for (let i = 0; i < teamNumbers.length; i++) {
-            dispatch({
-              type: "SET_IN_QUAL",
-              index: i,
-              payload: { team: teamNumbers[i] },
-            });
-          }
-        })
-        .catch((e) => {
-          console.error(e);
-        });
-    } else {
-      const teamIndex = state.role[state.role.length - 1] - 1;
-      getTeamNumberFromMatchInfo(
-        state.matchNumber,
-        state.matchLevel,
-        state.alliance,
-        teamIndex
-      )
-        .then((teamNumber) => {
+    try {
+      if (state.scoutingType === "qualitative") {
+        const teamNumbers = await getAllianceNumbersFromMatchInfo(
+          state.matchNumber,
+          state.matchLevel,
+          state.alliance
+        );
+        for (let i = 0; i < teamNumbers.length; i++) {
           dispatch({
-            type: "SET",
-            payload: { team: teamNumber },
+            type: "SET_IN_QUAL",
+            index: i,
+            payload: { team: teamNumbers[i] },
           });
-        })
-        .catch((e) => {
-          console.error(e);
+        }
+      } else {
+        const teamIndex = state.role[state.role.length - 1] - 1;
+        const teamNumber = await getTeamNumberFromMatchInfo(
+          state.matchNumber,
+          state.matchLevel,
+          state.alliance,
+          teamIndex
+        );
+        dispatch({
+          type: "SET",
+          payload: { team: teamNumber },
         });
+      }
+    } catch (error) {
+      console.error(error);
+      alert(error + "\nPlease enter the team number manually.");
     }
   };
 
@@ -67,6 +71,17 @@ const Configure = () => {
     } else {
       return state.team;
     }
+  };
+
+  const canAutofillTeamNumber = () => {
+    return (
+      state.matchNumber &&
+      state.matchLevel &&
+      state.role &&
+      state.matchNumber < 100 &&
+      state.matchNumber > 0 &&
+      state.matchLevel === "qualification"
+    );
   };
 
   return (
@@ -180,7 +195,7 @@ const Configure = () => {
               (state.scoutingType === "qualitative" ? "s" : "")
             }
             onClick={handleTeamNumberAutofill}
-            disabled={!state.matchNumber}
+            disabled={!canAutofillTeamNumber()}
             className={"m-2"}
           />
         </div>

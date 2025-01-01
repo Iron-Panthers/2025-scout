@@ -4,6 +4,7 @@ const versionArray = version.split(".");
 export const initialSettings = {
   darkMode: false,
   autoIncreaseMatch: true,
+  autoAutofillTeamNumber: false,
   version: {
     major: parseInt(versionArray[0]),
     minor: parseInt(versionArray[1]),
@@ -23,6 +24,12 @@ export const settingsInfo = [
     key: "autoIncreaseMatch",
     type: "boolean",
     description: "Automatically increase match number",
+  },
+  {
+    name: "Auto Autofill Team Number",
+    key: "autoAutofillTeamNumber",
+    type: "boolean",
+    description: "Automatically autofill team number when possible",
   },
 ];
 
