@@ -2,14 +2,56 @@ import React from "react";
 import ShortTextInput from "./inputs/ShortTextInput";
 import { useAppState } from "../state/state";
 import DropdownInput from "./inputs/DropdownInput";
-import { matchTypes, roles } from "../constants";
+import { matchLevels, roles } from "../constants";
 import Button from "./inputs/Button";
 import NextButton from "./inputs/button_variants/NextButton";
+import {
+  getAllianceNumbersFromMatchInfo,
+  getTeamNumberFromMatchInfo,
+} from "../api/tbaApi";
 
 const Configure = () => {
   const [state, dispatch] = useAppState();
 
-  const handleTeamNumberAutofill = () => {};
+  const handleTeamNumberAutofill = () => {
+    console.log("Autofilling team number");
+    if (state.scoutingType === "qualitative") {
+      getAllianceNumbersFromMatchInfo(
+        state.matchNumber,
+        state.matchLevel,
+        state.alliance
+      )
+        .then((teamNumbers) => {
+          for (let i = 0; i < teamNumbers.length; i++) {
+            dispatch({
+              type: "SET_IN_QUAL",
+              index: i,
+              payload: { team: teamNumbers[i] },
+            });
+          }
+        })
+        .catch((e) => {
+          console.error(e);
+        });
+    } else {
+      const teamIndex = state.role[state.role.length - 1] - 1;
+      getTeamNumberFromMatchInfo(
+        state.matchNumber,
+        state.matchLevel,
+        state.alliance,
+        teamIndex
+      )
+        .then((teamNumber) => {
+          dispatch({
+            type: "SET",
+            payload: { team: teamNumber },
+          });
+        })
+        .catch((e) => {
+          console.error(e);
+        });
+    }
+  };
 
   const canGoNext = () => {
     if (
@@ -96,15 +138,12 @@ const Configure = () => {
               label={"Match Number"}
               placeholder={"Enter the match # here"}
               stateProp={"matchNumber"}
-              onChange={(e) => {
-                console.log(state);
-              }}
               type="number"
             />
             <DropdownInput
-              label={"Match Type"}
-              options={matchTypes}
-              stateProp={"matchType"}
+              label={"Match Level"}
+              options={matchLevels}
+              stateProp={"matchLevel"}
             />
           </div>
           {state.scoutingType === "qualitative" ? (
@@ -135,7 +174,7 @@ const Configure = () => {
               type="number"
             />
           )}
-          <Button
+          <Button //only works with qualitative matches
             label={
               "Autofill Team Number" +
               (state.scoutingType === "qualitative" ? "s" : "")

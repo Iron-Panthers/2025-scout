@@ -16,7 +16,7 @@ export const initialState = {
   scouterName: "", // e.g. "Bruce 'the skibidi' Peters"
   scouterID: "", // e.g. "123456"
   role: "blue1", // blue1, blue2, blue3, blueQualitative, red1, red2, red3, redQualitative
-  matchType: "qualification", // practice, qualification, semifinals, finals
+  matchLevel: "qualification", // practice, qualification, semifinals, finals
   alliance: "blue", // blue, red
   scoutingType: "match", // match, qualitative
 
@@ -64,7 +64,7 @@ export const stateReducer = (state, action) => {
         scouterName: state.scouterName,
         scouterID: state.scouterID,
         role: state.role,
-        matchType: state.matchType,
+        matchLevel: state.matchLevel,
         alliance: state.alliance,
         scoutingType: state.scoutingType,
       };

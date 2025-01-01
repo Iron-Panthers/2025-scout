@@ -19,7 +19,7 @@ const roles = [
   { value: "redQualitative", label: "Red Qualitative" },
 ];
 
-const matchTypes = [
+const matchLevels = [
   { value: "practice", label: "Practice" },
   { value: "qualification", label: "Qualification" },
   { value: "semifinals", label: "Semifinals" },
@@ -32,4 +32,4 @@ const reviewToggles = [
   { key: "hasScoutingErrors", label: "Scouting Errors" },
 ];
 
-export { modes, roles, matchTypes, reviewToggles };
+export { modes, roles, matchLevels, reviewToggles };
