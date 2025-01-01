@@ -15,7 +15,7 @@ describe("RESET", () => {
   it("should reset the state", () => {
     let newState = { ...initialState };
     newState.defense = true;
-    const action = { type: "RESET" };
+    const action = { type: "RESET", increaseMatch: false };
     newState = stateReducer(newState, action);
     expect(newState).toEqual(initialState);
   });

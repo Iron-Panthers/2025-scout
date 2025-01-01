@@ -1,5 +1,14 @@
+import { version } from "../../package.json";
+const versionArray = version.split(".");
+
 export const initialSettings = {
   darkMode: false,
+  autoIncreaseMatch: true,
+  version: {
+    major: parseInt(versionArray[0]),
+    minor: parseInt(versionArray[1]),
+    patch: parseInt(versionArray[2]),
+  },
 };
 
 export const settingsInfo = [
@@ -9,9 +18,25 @@ export const settingsInfo = [
     type: "boolean",
     description: "Enable dark mode",
   },
+  {
+    name: "Auto Increase Match",
+    key: "autoIncreaseMatch",
+    type: "boolean",
+    description: "Automatically increase match number",
+  },
 ];
 
-export const settingsReducer = (settings, action) => {
+export const getSettings = () => {
+  return {
+    ...initialSettings,
+    ...JSON.parse(localStorage.getItem("settings") ?? "{}"),
+    version: { ...initialSettings.version },
+  };
+};
+
+export const initialStoredSettings = getSettings();
+
+const settingsReducerInternal = (settings, action) => {
   //add functionalities here
   switch (action.type) {
     case "SET":
@@ -21,4 +46,10 @@ export const settingsReducer = (settings, action) => {
     default:
       return settings;
   }
+};
+
+export const settingsReducer = (state, action) => {
+  const newState = settingsReducerInternal(state, action);
+  localStorage.setItem("settings", JSON.stringify(newState));
+  return newState;
 };

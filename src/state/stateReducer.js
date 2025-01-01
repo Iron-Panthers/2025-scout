@@ -1,3 +1,5 @@
+import { getSettings } from "./settingsReducer";
+
 const qualitativeTeam = {
   team: undefined, // e.g. 5026
   quickness: 1, // 1-3
@@ -51,7 +53,21 @@ export const stateReducer = (state, action) => {
     case "RESET":
       // do other stuff to the initial state based on settings here
       // e.g. increase match number by one, save scouter name, etc.
-      return initialState;
+      console.log(getSettings());
+      console.log(typeof state.matchNumber);
+      return {
+        ...initialState,
+        matchNumber:
+          typeof state.matchNumber === "number" && action.increaseMatch
+            ? state.matchNumber + 1
+            : initialState.matchNumber,
+        scouterName: state.scouterName,
+        scouterID: state.scouterID,
+        role: state.role,
+        matchType: state.matchType,
+        alliance: state.alliance,
+        scoutingType: state.scoutingType,
+      };
     case "NEXT_MODE":
       // do stuff to the state based on the current mode
       // e.g. if mode is Configure, change to Scout

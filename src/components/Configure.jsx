@@ -96,6 +96,9 @@ const Configure = () => {
               label={"Match Number"}
               placeholder={"Enter the match # here"}
               stateProp={"matchNumber"}
+              onChange={(e) => {
+                console.log(state);
+              }}
               type="number"
             />
             <DropdownInput

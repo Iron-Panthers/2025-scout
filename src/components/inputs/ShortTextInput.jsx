@@ -10,17 +10,21 @@ const ShortTextInput = ({
   axis = "vertical",
   stateProp,
   className,
+  type = "text",
   ...rest
 }) => {
   const [state, dispatch] = stateProp ? useAppState() : [null, null]; // no need to call use App State if we don't have a state prop
 
   const handleChange = (e) => {
     if (stateProp) {
+      const value =
+        type === "number" ? parseInt(e.target.value) : e.target.value;
+
       // if we have a state prop to set, we set that on change
       dispatch({
         type: "SET",
         payload: {
-          [stateProp]: e.target.value,
+          [stateProp]: value,
         },
       });
     }
@@ -37,7 +41,7 @@ const ShortTextInput = ({
     >
       {label && <label htmlFor={label}>{label}</label>}
       <input
-        type="text"
+        type={type}
         id={label}
         placeholder={placeholder ?? label}
         value={(stateProp ? state[stateProp] : value) ?? ""} // if were given a state prop, we use that, otherwise we use the value prop

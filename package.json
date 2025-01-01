@@ -2,6 +2,7 @@
   "name": "2025-scout",
   "private": true,
   "version": "0.0.0",
+  "csvApi": "1",
   "type": "module",
   "scripts": {
     "dev": "vite",

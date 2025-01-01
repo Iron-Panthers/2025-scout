@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useReducer } from "react";
 import { initialState, stateReducer } from "./stateReducer";
-import { initialSettings, settingsReducer } from "./settingsReducer";
+import { settingsReducer, initialStoredSettings } from "./settingsReducer";
 
 // APP STATE MANAGEMENT CONTEXT
 const AppStateContext = createContext({
@@ -16,7 +16,7 @@ export const useAppState = () => {
 // SETTINGS MANAGEMENT CONTEXT
 const SettingsContext = createContext({
   // Creates a context object with our initial settings
-  settings: initialSettings,
+  settings: initialStoredSettings,
   dispatch: () => {},
 });
 export const useSettings = () => {
@@ -28,7 +28,7 @@ const Provider = ({ children }) => {
   const [state, dispatch] = useReducer(stateReducer, initialState);
   const [settings, settingsDispatch] = useReducer(
     settingsReducer,
-    initialSettings
+    initialStoredSettings
   );
 
   return (

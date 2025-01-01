@@ -2,17 +2,21 @@ import React from "react";
 import ResetButton from "./inputs/button_variants/ResetButton";
 import Button from "./inputs/Button";
 import QRCode from "react-qr-code";
-import { useAppState } from "../state/state";
+import { useAppState, useSettings } from "../state/state";
 
 const ScanData = () => {
   const [state, dispatch] = useAppState();
+  const [settings, settingsDispatch] = useSettings();
 
   return (
     <div className="text-2xl flex flex-col sm:flex-row h-full w-full">
       {/* Reset Button */}
       <ResetButton
         onClick={() => {
-          dispatch({ type: "RESET" });
+          dispatch({
+            type: "RESET",
+            increaseMatch: settings.autoIncreaseMatch,
+          });
         }}
         className="flex-grow flex-1"
       />
