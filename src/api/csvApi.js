@@ -1,6 +1,9 @@
 // convert to csv here
 
-export const filterState = (state) => {};
+export const filterState = ({ mode, phase, ...rest }) => {
+  const isQualitative = state.scoutingType === "qualitative";
+  return {};
+};
 
 export const stateToCsv = (state) => {};
 
