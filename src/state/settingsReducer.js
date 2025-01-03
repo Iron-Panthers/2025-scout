@@ -11,6 +11,7 @@ export const initialSettings = {
   autoIncreaseMatch: true,
   autoAutofillTeamNumber: false,
   rickRoll: false,
+  subwaySurf: false,
 };
 
 export const settingsInfo = [
@@ -37,6 +38,13 @@ export const settingsInfo = [
     key: "rickRoll",
     type: "boolean",
     description: "Enable rick roll - please don't do this in a competition",
+  },
+  {
+    name: "Subway Surf",
+    key: "subwaySurf",
+    type: "boolean",
+    description:
+      "Increase your concentration- please don't do this in a competition",
   },
 ];
 
