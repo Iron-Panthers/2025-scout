@@ -2,14 +2,15 @@ import { version } from "../../package.json";
 const versionArray = version.split(".");
 
 export const initialSettings = {
-  darkMode: false,
-  autoIncreaseMatch: true,
-  autoAutofillTeamNumber: false,
   version: {
     major: parseInt(versionArray[0]),
     minor: parseInt(versionArray[1]),
     patch: parseInt(versionArray[2]),
   },
+  darkMode: false,
+  autoIncreaseMatch: true,
+  autoAutofillTeamNumber: false,
+  rickRoll: false,
 };
 
 export const settingsInfo = [
@@ -30,6 +31,12 @@ export const settingsInfo = [
     key: "autoAutofillTeamNumber",
     type: "boolean",
     description: "Automatically autofill team number when possible",
+  },
+  {
+    name: "Rick Roll",
+    key: "rickRoll",
+    type: "boolean",
+    description: "Enable rick roll - please don't do this in a competition",
   },
 ];
 

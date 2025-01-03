@@ -1,4 +1,5 @@
 import { getSettings } from "./settingsReducer";
+import { csvApi } from "../../package.json";
 
 const qualitativeTeam = {
   team: undefined, // e.g. 5026
@@ -53,8 +54,6 @@ export const stateReducer = (state, action) => {
     case "RESET":
       // do other stuff to the initial state based on settings here
       // e.g. increase match number by one, save scouter name, etc.
-      console.log(getSettings());
-      console.log(typeof state.matchNumber);
       return {
         ...initialState,
         matchNumber:
@@ -78,7 +77,7 @@ export const stateReducer = (state, action) => {
         state.scoutingType === "match"
           ? ["Configure", "Scout", "Review", "ScanData"]
           : state.scoutingType === "qualitative"
-          ? ["Configure", "Qualitative", "Review", "ScanData"]
+          ? ["Configure", "Qualitative", "ScanData"]
           : ["you fucked up"];
       return {
         ...state,
