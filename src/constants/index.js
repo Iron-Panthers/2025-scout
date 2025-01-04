@@ -32,4 +32,11 @@ const reviewToggles = [
   { key: "hasScoutingErrors", label: "Scouting Errors" },
 ];
 
-export { modes, roles, matchLevels, reviewToggles };
+const googleAPIConstants = {
+  scriptURL:
+    "https://script.google.com/macros/s/AKfycbzCgHhAONBzuULPxXG8oKCOAPp8mSf_YVUbuxKxWY_BAtp_Ed0DiERIVYnWv8rnIbYwMQ/exec",
+  sheetName: "Bruce's New Tab",
+  colNumber: 3,
+};
+
+export { modes, roles, matchLevels, reviewToggles, googleAPIConstants };
