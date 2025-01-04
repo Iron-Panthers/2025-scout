@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import Button from "../Button";
 
-const ResetButton = ({ onClick, className, ...rest }) => {
+const ResetButton = ({
+  onClick,
+  className,
+  label = "Reset",
+  confirmLabel = "Confirm Reset",
+  ...rest
+}) => {
   const [clicked, setClicked] = useState(false);
 
   const handleClick = () => {
@@ -15,7 +21,7 @@ const ResetButton = ({ onClick, className, ...rest }) => {
   return (
     <Button
       color="red"
-      label={clicked ? "Confirm Reset" : "Reset"}
+      label={clicked ? confirmLabel : label}
       onClick={handleClick}
       {...rest}
       className={className + " "}

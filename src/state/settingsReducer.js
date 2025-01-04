@@ -7,9 +7,16 @@ export const initialSettings = {
     minor: parseInt(versionArray[1]),
     patch: parseInt(versionArray[2]),
   },
+  prevVersion: {
+    major: parseInt(versionArray[0]),
+    minor: parseInt(versionArray[1]),
+    patch: parseInt(versionArray[2]),
+  },
   darkMode: false,
   autoIncreaseMatch: true,
   autoAutofillTeamNumber: false,
+  googleSheetLink:
+    "https://docs.google.com/spreadsheets/d/18aaCpi5fXiX6brnfSokG2z294Vt7ImoQWLaaExzSLJE/edit",
   rickRoll: false,
   subwaySurf: false,
 };
@@ -46,14 +53,30 @@ export const settingsInfo = [
     description:
       "Increase your concentration- please don't do this in a competition",
   },
+  {
+    name: "Google Sheet Link",
+    key: "googleSheetLink",
+    type: "string",
+    description:
+      "Insert the link to the current scouting google sheet - make sure it is the correct link",
+  },
 ];
 
 export const getSettings = () => {
-  return {
+  let settings = {
     ...initialSettings,
     ...JSON.parse(localStorage.getItem("settings") ?? "{}"),
     version: { ...initialSettings.version },
   };
+
+  // updating settings if version has changed
+  if (settings.version !== settings.prevVersion) {
+    settings = {
+      ...settings,
+      googleSheetLink: initialSettings.googleSheetLink,
+    };
+  }
+  return settings;
 };
 
 export const initialStoredSettings = getSettings();
