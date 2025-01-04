@@ -4,6 +4,7 @@ import { settingsInfo } from "../state/settingsReducer";
 import Button from "./inputs/Button";
 import ToggleButton from "./inputs/ToggleButton";
 import ShortTextInput from "./inputs/ShortTextInput";
+import { version } from "../../package.json";
 
 const Settings = () => {
   const [settings, dispatchSettings] = useSettings();
@@ -18,7 +19,8 @@ const Settings = () => {
           dispatch({ type: "SET", payload: { mode: "Configure" } });
         }}
       />
-      <div className="text-2xl font-bold m-4">Settings</div>
+      <div className="text-2xl font-bold mt-4">Settings</div>
+      <div className="text-xs mb-4">Version {version}</div>
       <div className="flex flex-col overflow-scroll w-3/4">
         {settingsInfo.map((settingInfo, index) => {
           return (
@@ -38,10 +40,10 @@ const Settings = () => {
                 <ShortTextInput
                   label={settingInfo.name}
                   value={settings[settingInfo.key]}
-                  onChange={() => {
+                  onChange={(e) => {
                     dispatchSettings({
                       type: "SET",
-                      payload: settingInfo.key,
+                      payload: { [settingInfo.key]: e.target.value },
                     });
                   }}
                 />

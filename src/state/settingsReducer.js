@@ -15,6 +15,7 @@ export const initialSettings = {
   darkMode: false,
   autoIncreaseMatch: true,
   autoAutofillTeamNumber: false,
+  eventID: "2024cacc",
   googleSheetLink:
     "https://docs.google.com/spreadsheets/d/18aaCpi5fXiX6brnfSokG2z294Vt7ImoQWLaaExzSLJE/edit",
   rickRoll: false,
@@ -54,6 +55,12 @@ export const settingsInfo = [
       "Increase your concentration- please don't do this in a competition",
   },
   {
+    name: "Event ID",
+    key: "eventID",
+    type: "string",
+    description: "Enter the event ID. format: YYYY[EventCode] (e.g. 2024cacc)",
+  },
+  {
     name: "Google Sheet Link",
     key: "googleSheetLink",
     type: "string",
@@ -70,10 +77,11 @@ export const getSettings = () => {
   };
 
   // updating settings if version has changed
-  if (settings.version !== settings.prevVersion) {
+  if (settings.version.patch !== settings.prevVersion.patch) {
     settings = {
       ...settings,
       googleSheetLink: initialSettings.googleSheetLink,
+      eventID: initialSettings.eventID,
     };
   }
   return settings;

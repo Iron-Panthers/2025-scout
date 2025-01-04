@@ -2,8 +2,6 @@ const apiKey =
   "fnwAT6yo0t4otgOrZ4EwZiZ2yPBAtxAcubngPwbcSYqtdaK9Jmmw4q3jttGNc7IY";
 const baseUrl = "https://www.thebluealliance.com/api/v3";
 
-const currentEventKey = "2024cacc";
-
 const getMatchInfo = async (matchNumber, matchLevel) => {
   if (matchLevel !== "qualification") {
     throw new Error("Match level not supported");
