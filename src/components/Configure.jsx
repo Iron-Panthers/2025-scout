@@ -47,7 +47,8 @@ const Configure = () => {
         const teamNumbers = await getAllianceNumbersFromMatchInfo(
           state.matchNumber,
           state.matchLevel,
-          state.alliance
+          state.alliance,
+          settings.eventID
         );
         for (let i = 0; i < teamNumbers.length; i++) {
           dispatch({
@@ -62,7 +63,8 @@ const Configure = () => {
           state.matchNumber,
           state.matchLevel,
           state.alliance,
-          teamIndex
+          teamIndex,
+          settings.eventID
         );
         dispatch({
           type: "SET",

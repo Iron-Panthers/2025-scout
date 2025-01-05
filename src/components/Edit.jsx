@@ -6,7 +6,10 @@ const Edit = () => {
   const [state, dispatch] = useAppState();
   return (
     <div>
-      <div>Edit</div>
+      <div>
+        <h1 className="text-3xl">Edit</h1>
+        <p className="text-lg">Edit the data you have entered</p>
+      </div>
       <Button
         label={"Back"}
         color="blue"

@@ -2,7 +2,7 @@ const apiKey =
   "fnwAT6yo0t4otgOrZ4EwZiZ2yPBAtxAcubngPwbcSYqtdaK9Jmmw4q3jttGNc7IY";
 const baseUrl = "https://www.thebluealliance.com/api/v3";
 
-const getMatchInfo = async (matchNumber, matchLevel) => {
+const getMatchInfo = async (matchNumber, matchLevel, currentEventKey) => {
   if (matchLevel !== "qualification") {
     throw new Error("Match level not supported");
   }
@@ -40,17 +40,27 @@ export const getTeamNumberFromMatchInfo = async (
   matchNumber,
   matchLevel,
   alliance,
-  teamIndex
+  teamIndex,
+  currentEventKey
 ) => {
-  const matchData = await getMatchInfo(matchNumber, matchLevel);
+  const matchData = await getMatchInfo(
+    matchNumber,
+    matchLevel,
+    currentEventKey
+  );
   return getTeamFromMatch(matchData, alliance, teamIndex);
 };
 
 export const getAllianceNumbersFromMatchInfo = async (
   matchNumber,
   matchLevel,
-  alliance
+  alliance,
+  currentEventKey
 ) => {
-  const matchData = await getMatchInfo(matchNumber, matchLevel);
+  const matchData = await getMatchInfo(
+    matchNumber,
+    matchLevel,
+    currentEventKey
+  );
   return getAllianceFromMatch(matchData, alliance);
 };
