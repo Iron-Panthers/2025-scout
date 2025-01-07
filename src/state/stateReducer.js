@@ -9,7 +9,7 @@ const qualitativeTeam = {
 
 export const initialState = {
   // full app state
-  mode: "Configure", // Configure, Scout, Review, ScanData, Settings, Qualitative, Edit
+  mode: "Scout", // Configure, Scout, Review, ScanData, Settings, Qualitative, Edit
 
   // configuration state
   team: undefined, // e.g. 5026

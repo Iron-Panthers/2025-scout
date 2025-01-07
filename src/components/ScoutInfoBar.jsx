@@ -1,0 +1,18 @@
+import React from "react";
+import { useAppState } from "../state/state";
+import Button from "./inputs/Button";
+
+const ScoutInfoBar = () => {
+  const [state, dispatch] = useAppState();
+  return (
+    <div className="h-[15vh] flex flex-row justify-between p-2 items-center">
+      <div>Match: {state.matchNumber}</div>
+      <div>Team: {state.teamNumber}</div>
+      <div>Scouter: {state.scouterName}</div>
+      <div>Phase: {state.phase}</div>
+      <Button label={"Undo"} color="gray" className={"text-sm"} />
+    </div>
+  );
+};
+
+export default ScoutInfoBar;
