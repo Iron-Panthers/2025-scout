@@ -14,6 +14,7 @@ export const filterState = (state) => {
     scouterID: state.scouterID,
     role: state.role,
     alliance: state.alliance,
+    team: state.team,
     matchNumber: state.matchNumber,
     matchLevel: state.matchLevel,
   };

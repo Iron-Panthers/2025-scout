@@ -3,6 +3,7 @@ import { useAppState } from "../state/state";
 import AlgaeActionMenu from "./AlgaeActionMenu";
 import CoralScoringMenu from "./CoralScoringMenu";
 import Button from "./inputs/Button";
+import { coralIcon } from "../assets";
 
 const Teleop = () => {
   const [state, dispatch] = useAppState();
@@ -14,6 +15,7 @@ const Teleop = () => {
         handleClose={() => {
           setAlgaeActionMenu(false);
         }}
+        phase="teleop"
       />
     );
   } else if (coralScoringMenu) {
@@ -22,14 +24,14 @@ const Teleop = () => {
         handleClose={() => {
           setCoralScoringMenu(false);
         }}
+        phase="teleop"
       />
     );
   }
 
   return (
-    <div className="flex flex-col h-full p-2 gap-2">
+    <div className="flex flex-col h-full p-2 gap-2 bg-green-500 bg-opacity-10">
       <div className="flex flex-row justify-stretch flex-1 gap-2 text-lg">
-        <Button label={"Robot Leave"} color="red" className={"flex-1"} />
         <Button
           label={"Algae Action"}
           color="turquoise"
@@ -37,7 +39,9 @@ const Teleop = () => {
             setAlgaeActionMenu(true);
           }}
           className={"flex-1"}
-        />
+        >
+          <div className="max-h-28 max-w-28 size-28 bg-[#00ffd7] rounded-full mx-auto p-2 shadow-2xl"></div>
+        </Button>
         <Button
           label={"Coral Scoring"}
           color="gray"
@@ -45,7 +49,12 @@ const Teleop = () => {
           onClick={() => {
             setCoralScoringMenu(true);
           }}
-        />
+        >
+          <img
+            src={coralIcon}
+            className="m-auto max-h-28 -rotate-12 my-2"
+          ></img>
+        </Button>
       </div>
       <div className="flex flex-row justify-stretch gap-2 h-24 w-full">
         <Button

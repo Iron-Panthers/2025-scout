@@ -9,23 +9,46 @@ const qualitativeTeam = {
 
 export const initialState = {
   // full app state
-  mode: "Scout", // Configure, Scout, Review, ScanData, Settings, Qualitative, Edit
+  mode: "Configure", // Configure, Scout, Review, ScanData, Settings, Qualitative, Edit
 
   // configuration state
   team: undefined, // e.g. 5026
   matchNumber: undefined, // e.g. 72
+  matchLevel: "qualification", // practice, qualification, semifinals, finals
+  scoutingType: "match", // match, qualitative
   scouterName: "", // e.g. "Bruce 'the skibidi' Peters"
   scouterID: "", // e.g. "123456"
   role: "blue1", // blue1, blue2, blue3, blueQualitative, red1, red2, red3, redQualitative
-  matchLevel: "qualification", // practice, qualification, semifinals, finals
   alliance: "blue", // blue, red
-  scoutingType: "match", // match, qualitative
 
   // match scout state
   phase: "auto", // auto, teleop, endgame
-  auto: {}, // auto phase data
-  teleop: {}, // teleop phase data
-  endgame: {}, // endgame phase data
+  auto: {
+    leave: false, // did the robot leave the starting zone
+    coralScoredL1: 0, // number of level 1 corals scored
+    coralScoredL2: 0, // number of level 2 corals scored
+    coralScoredL3: 0, // number of level 3 corals scored
+    coralScoredL4: 0, // number of level 4 corals scored
+    algaeInNet: 0, // number of algae scored in the net
+    algaeInProcessor: 0, // number of algae scored in the processor
+    algaeRemoved: 0, // number of algae removed from the reef
+  }, // auto phase data
+  teleop: {
+    coralScoredL1: 0, // number of level 1 corals scored
+    coralScoredL2: 0, // number of level 2 corals scored
+    coralScoredL3: 0, // number of level 3 corals scored
+    coralScoredL4: 0, // number of level 4 corals scored
+    algaeInNet: 0, // number of algae scored in the net
+    algaeInProcessor: 0, // number of algae scored in the processor
+    algaeRemoved: 0, // number of algae removed from the reef
+  }, // teleop phase data
+  endgame: {
+    park: false, // did the robot park
+    attemptedClimb: false, // did the robot attempt to climb
+    climbSuccessful: undefined, // did the robot successfully climb
+    climbingCage: undefined, // did the robot climb the cage if so which? (shallow, deep)
+    climbStartTime: undefined, // time the robot started climbing
+  }, // endgame phase data
 
   // qualitative scout state
   qualitativeTeams: [
@@ -35,7 +58,7 @@ export const initialState = {
   ], // qualitative data for the teams - should be an array of three objects
 
   // review state
-  defense: false,
+  defense: 2, // slider 1,2,3 for defense quality
   robotProblems: false,
   hasScoutingErrors: false,
   scoutingErrors: "",
@@ -93,6 +116,21 @@ export const stateReducer = (state, action) => {
         qualitativeTeams: state.qualitativeTeams.map((team, index) =>
           index === action.index ? { ...team, ...action.payload } : team
         ),
+      };
+    case "SET_IN_PHASE":
+      // set the phase data at the phase specified
+      return {
+        ...state,
+        [action.phase]: { ...state[action.phase], ...action.payload },
+      };
+    case "INCREMENT_IN_PHASE":
+      // set the phase data at the phase specified
+      return {
+        ...state,
+        [action.phase]: {
+          ...state[action.phase],
+          [action.key]: state[action.phase][action.key] + 1,
+        },
       };
     default:
       return state;

@@ -5,7 +5,12 @@ import Button from "./inputs/Button";
 const ScoutInfoBar = () => {
   const [state, dispatch] = useAppState();
   return (
-    <div className="h-[15vh] flex flex-row justify-between p-2 items-center">
+    <div
+      className={
+        "h-[15vh] flex flex-row justify-between p-2 items-center bg-opacity-40 " +
+        (state.alliance === "red" ? "bg-red-500" : "bg-blue-500")
+      }
+    >
       <div>Match: {state.matchNumber}</div>
       <div>Team: {state.teamNumber}</div>
       <div>Scouter: {state.scouterName}</div>

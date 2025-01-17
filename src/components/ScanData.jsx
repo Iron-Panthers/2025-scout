@@ -114,9 +114,7 @@ const ScanData = () => {
         color={"green"}
         label={"Add to Google Sheet"}
         className="flex-grow flex-1"
-      >
-        Add to Google Sheet
-      </Button>
+      ></Button>
     </div>
   );
 };
