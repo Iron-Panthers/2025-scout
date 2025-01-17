@@ -27,7 +27,6 @@ const matchLevels = [
 ];
 
 const reviewToggles = [
-  { key: "defense", label: "Defense" },
   { key: "robotProblems", label: "Robot Problems" },
   { key: "hasScoutingErrors", label: "Scouting Errors" },
 ];

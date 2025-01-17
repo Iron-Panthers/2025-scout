@@ -5,6 +5,7 @@ import { useAppState } from "../state/state";
 import LongTextInput from "./inputs/LongTextInput";
 import Button from "./inputs/Button";
 import NextButton from "./inputs/button_variants/NextButton";
+import Slider from "./inputs/Slider";
 
 const Review = () => {
   const [state, dispatch] = useAppState();
@@ -13,6 +14,15 @@ const Review = () => {
       {/* Toggle Option Section */}
       <div className="flex flex-col border border-dark rounded-lg p-2 gap-5">
         <h1 className="font-bold text-xl">Review</h1>
+        {
+          // defense slider
+          <Slider
+            label={"Defense Slider"}
+            stateProp={"defense"}
+            maxValue={3}
+            minValue={1}
+          />
+        }
         {
           // checkboxes
           reviewToggles.map((toggle, index) => (
