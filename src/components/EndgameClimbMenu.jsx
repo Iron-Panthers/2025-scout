@@ -18,6 +18,7 @@ const EndgameClimbMenu = ({ handleClose, cage }) => {
       <div className="flex flex-col gap-2 flex-1">
         <ShortTextInput
           label={"Climbing Time"}
+          type="number"
           placeholder={"Enter current time here"}
           className={"flex-1"}
           onChange={(e) => setClimbStartTime(e.target.value)}
