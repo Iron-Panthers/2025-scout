@@ -15,7 +15,14 @@ const ScoutInfoBar = () => {
       <div>Team: {state.teamNumber}</div>
       <div>Scouter: {state.scouterName}</div>
       <div>Phase: {state.phase}</div>
-      <Button label={"Undo"} color="gray" className={"text-sm"} />
+      <Button
+        label={"Undo"}
+        color="gray"
+        className={"text-sm"}
+        onClick={() => {
+          dispatch({ type: "UNDO" });
+        }}
+      />
     </div>
   );
 };

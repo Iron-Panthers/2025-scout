@@ -63,6 +63,8 @@ export const initialState = {
   hasScoutingErrors: false,
   scoutingErrors: "",
   comments: "",
+
+  history: [], // add history array to store previous states
 };
 // the MODE is the current page that the user is on
 // the PHASE is the current phase of the match
@@ -71,14 +73,23 @@ export const initialState = {
 export const stateReducer = (state, action) => {
   switch (action.type) {
     case "SET":
-      return { ...state, ...action.payload }; // handle the undo stuff later - if it don't work than thats my bad
+      return {
+        ...state,
+        history: [...state.history, state],
+        ...action.payload,
+      };
     case "TOGGLE":
-      return { ...state, [action.payload]: !state[action.payload] };
+      return {
+        ...state,
+        history: [...state.history, state],
+        [action.payload]: !state[action.payload],
+      };
     case "RESET":
       // do other stuff to the initial state based on settings here
       // e.g. increase match number by one, save scouter name, etc.
       return {
         ...initialState,
+        history: [...state.history, state],
         matchNumber:
           typeof state.matchNumber === "number" && action.increaseMatch
             ? state.matchNumber + 1
@@ -104,15 +115,21 @@ export const stateReducer = (state, action) => {
           : ["you fucked up"];
       return {
         ...state,
+        history: [...state.history, state],
         mode: modes[(modes.indexOf(state.mode) + 1) % modes.length],
       };
     case "SET_PHASE":
       // set our phase to be the phase specified
-      return { ...state, phase: action.phase };
+      return {
+        ...state,
+        history: [...state.history, state],
+        phase: action.phase,
+      };
     case "SET_IN_QUAL":
       // set the team in the qualitative team array at the index specified
       return {
         ...state,
+        history: [...state.history, state],
         qualitativeTeams: state.qualitativeTeams.map((team, index) =>
           index === action.index ? { ...team, ...action.payload } : team
         ),
@@ -121,17 +138,24 @@ export const stateReducer = (state, action) => {
       // set the phase data at the phase specified
       return {
         ...state,
+        history: [...state.history, state],
         [action.phase]: { ...state[action.phase], ...action.payload },
       };
     case "INCREMENT_IN_PHASE":
       // set the phase data at the phase specified
       return {
         ...state,
+        history: [...state.history, state],
         [action.phase]: {
           ...state[action.phase],
           [action.key]: state[action.phase][action.key] + 1,
         },
       };
+    case "UNDO":
+      // undo the last action
+      if (state.history.length === 0) return state;
+      const previousState = state.history[state.history.length - 1];
+      return { ...previousState, history: state.history.slice(0, -1) };
     default:
       return state;
   }
