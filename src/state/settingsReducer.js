@@ -42,19 +42,6 @@ export const settingsInfo = [
     description: "Automatically autofill team number when possible",
   },
   {
-    name: "Rick Roll",
-    key: "rickRoll",
-    type: "boolean",
-    description: "Enable rick roll - please don't do this in a competition",
-  },
-  {
-    name: "Subway Surf",
-    key: "subwaySurf",
-    type: "boolean",
-    description:
-      "Increase your concentration- please don't do this in a competition",
-  },
-  {
     name: "Event ID",
     key: "eventID",
     type: "string",
