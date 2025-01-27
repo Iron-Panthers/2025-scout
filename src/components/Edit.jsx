@@ -1,14 +1,18 @@
 import React from "react";
 import Button from "./inputs/Button";
 import { useAppState } from "../state/state";
+import { editViewSections } from "../constants";
+import EditSection from "./EditSection";
 
 const Edit = () => {
   const [state, dispatch] = useAppState();
   return (
-    <div>
-      <div>
-        <h1 className="text-3xl">Edit</h1>
-        <p className="text-lg">Edit the data you have entered</p>
+    <div className="flex flex-col h-full">
+      <div className="overflow-y-scroll flex-grow">
+        <h1 className="text-3xl text-center m-4">Edit</h1>
+        {editViewSections.map((section) => (
+          <EditSection key={section.title} section={section} />
+        ))}
       </div>
       <Button
         label={"Back"}
@@ -16,7 +20,7 @@ const Edit = () => {
         onClick={() => {
           dispatch({ type: "SET", payload: { mode: "Review" } });
         }}
-        className={"absolute w-full bottom-0"}
+        className={"w-full bottom-0"}
       />
     </div>
   );
