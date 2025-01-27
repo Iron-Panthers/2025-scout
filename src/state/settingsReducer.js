@@ -15,9 +15,9 @@ export const initialSettings = {
   darkMode: false,
   autoIncreaseMatch: true,
   autoAutofillTeamNumber: false,
-  eventID: "2025miken",
+  eventID: "2024miken",
   googleSheetLink:
-    "https://docs.google.com/spreadsheets/d/18aaCpi5fXiX6brnfSokG2z294Vt7ImoQWLaaExzSLJE/edit",
+    "https://docs.google.com/spreadsheets/d/1h0gSCY-ZWZskMp37Uva4hfjcncRGoFHKk2RqDea3jK0/edit?gid=195681231#gid=195681231",
   rickRoll: false,
   subwaySurf: false,
 };
