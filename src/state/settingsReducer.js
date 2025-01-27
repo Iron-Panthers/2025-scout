@@ -15,7 +15,7 @@ export const initialSettings = {
   darkMode: false,
   autoIncreaseMatch: true,
   autoAutofillTeamNumber: true,
-  eventID: "2024mimus",
+  eventID: "2024miken",
   googleSheetLink:
     "https://docs.google.com/spreadsheets/d/1Q9UFEYUi2YjhTI84I-R0SoF4drZWVNoXEb4i9eGk1Cw/edit?gid=0#gid=0",
   rickRoll: false,
