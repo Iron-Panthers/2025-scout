@@ -1,5 +1,5 @@
 const apiKey =
-  "fnwAT6yo0t4otgOrZ4EwZiZ2yPBAtxAcubngPwbcSYqtdaK9Jmmw4q3jttGNc7IY";
+  "HoMiA9fV8deprZbQYMgl7KNGQe94jwcQS2JQJlelHGNLIgFtZs64MnZR7xaPS2Oz";
 const baseUrl = "https://www.thebluealliance.com/api/v3";
 
 const getMatchInfo = async (matchNumber, matchLevel, currentEventKey) => {
