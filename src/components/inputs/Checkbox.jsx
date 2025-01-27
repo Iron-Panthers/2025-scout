@@ -1,6 +1,20 @@
 import React from "react";
 import { useAppState } from "../../state/state";
 
+/**
+ * A simple checkbox component
+ *
+ * @param {*} {
+ *   label,
+ *   onChange,
+ *   value,
+ *   stateProp,
+ *   phase,
+ *   className,
+ *   ...rest
+ * }
+ * @returns {*}
+ */
 const Checkbox = ({
   label,
   onChange,

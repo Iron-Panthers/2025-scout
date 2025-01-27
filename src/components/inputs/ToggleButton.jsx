@@ -1,5 +1,18 @@
 import React from "react";
 
+/**
+ * A toggle button
+ *
+ * @param {*} {
+ *   label,
+ *   onChange,
+ *   value,
+ *   stateProp,
+ *   className,
+ *   ...rest
+ * }
+ * @returns {*}
+ */
 const ToggleButton = ({
   label,
   onChange,

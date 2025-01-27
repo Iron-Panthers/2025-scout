@@ -1,5 +1,5 @@
-import { getSettings } from "./settingsReducer";
 import { csvApi } from "../../package.json";
+import { getSettings } from "./settingsReducer";
 
 const qualitativeTeam = {
   team: undefined, // e.g. 5026

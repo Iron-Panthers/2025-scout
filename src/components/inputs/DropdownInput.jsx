@@ -1,6 +1,22 @@
 import React from "react";
 import { useAppState } from "../../state/state";
 
+/**
+ * A dropdown input component
+ *
+ * @param {*} {
+ *   fillColor,
+ *   label,
+ *   options,
+ *   onChange,
+ *   value,
+ *   axis = "vertical",
+ *   stateProp,
+ *   className,
+ *   ...rest
+ * }
+ * @returns {*}
+ */
 const DropdownInput = ({
   fillColor,
   label,

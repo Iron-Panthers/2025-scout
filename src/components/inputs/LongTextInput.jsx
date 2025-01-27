@@ -1,6 +1,22 @@
 import React, { useState } from "react";
 import { useAppState } from "../../state/state";
 
+/**
+ * A multiline text input
+ *
+ * @param {*} {
+ *   fillColor,
+ *   label,
+ *   value,
+ *   placeholder,
+ *   onChange,
+ *   axis = "vertical",
+ *   stateProp,
+ *   className,
+ *   ...rest
+ * }
+ * @returns {*}
+ */
 const LongTextInput = ({
   fillColor,
   label,

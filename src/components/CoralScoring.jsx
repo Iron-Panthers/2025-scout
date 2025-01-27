@@ -1,14 +1,17 @@
-import React from "react";
+import { reefDiagram } from "../assets";
 import { useAppState } from "../state/state";
 import Button from "./inputs/Button";
-import { reefDiagram } from "../assets";
 
-const CoralScoringMenu = ({ handleClose, phase = "teleop" }) => {
-  const [state, dispatch] = useAppState();
+/**
+ * A component that allows the user to score coral
+ * @param {*} { handleClose, phase = "teleop" }
+ * @returns {*}
+ */
+const CoralScoring = ({ handleClose, phase = "teleop" }) => {
   return (
-    <div className="flex flex-row h-full p-2 gap-2 overflow-hidden">
+    <div className="max-w-full overflow-x-auto flex flex-row gap-2 flex-1">
       {/* insert svg of thingy here */}
-      <img src={reefDiagram} className="max-h-full object-contain" />
+      <img src={reefDiagram} className="h-auto" alt="reef diagram"></img>
       <div className="flex flex-col gap-2 flex-1">
         <CoralScoringButton
           phase={phase}
@@ -39,11 +42,16 @@ const CoralScoringMenu = ({ handleClose, phase = "teleop" }) => {
           handleClose={handleClose}
         />
       </div>
-      <Button label={"Back"} onClick={handleClose} />
     </div>
   );
 };
 
+/**
+ * A button that increments the coral scoring state state when clicked
+ *
+ * @param {*} { phase, stateKey, label, color, handleClose }
+ * @returns {*}
+ */
 const CoralScoringButton = ({ phase, stateKey, label, color, handleClose }) => {
   const [state, dispatch] = useAppState();
   return (
@@ -67,4 +75,4 @@ const CoralScoringButton = ({ phase, stateKey, label, color, handleClose }) => {
   );
 };
 
-export default CoralScoringMenu;
+export default CoralScoring;

@@ -1,5 +1,18 @@
 import React from "react";
 
+/**
+ * A simple button component
+ *
+ * @param {*} {
+ *   color = "blue",
+ *   label,
+ *   onClick,
+ *   className,
+ *   children,
+ *   ...rest
+ * }
+ * @returns {*}
+ */
 const Button = ({
   color = "blue",
   label,

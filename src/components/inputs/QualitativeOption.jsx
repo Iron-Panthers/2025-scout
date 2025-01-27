@@ -1,7 +1,13 @@
 import React from "react";
-import Button from "./Button";
 import { useAppState } from "../../state/state";
+import Button from "./Button";
 
+/**
+ * A option containing 3 buttons for qualitative data
+ *
+ * @param {*} { team, stateProp, className }
+ * @returns {*}
+ */
 const QualitativeOption = ({ team, stateProp, className }) => {
   const [state, dispatch] = useAppState();
 

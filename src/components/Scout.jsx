@@ -1,11 +1,11 @@
 import React from "react";
-import Button from "./inputs/Button";
 import { useAppState } from "../state/state";
-import NextButton from "./inputs/button_variants/NextButton";
 import Auto from "./Auto";
 import Endgame from "./Endgame";
-import Teleop from "./Teleop";
+import Button from "./inputs/Button";
+import NextButton from "./inputs/button_variants/NextButton";
 import ScoutInfoBar from "./ScoutInfoBar";
+import Teleop from "./Teleop";
 
 const Scout = () => {
   const [state, dispatch] = useAppState();
@@ -13,7 +13,7 @@ const Scout = () => {
   // this switches its content based on our current mode
 
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-full relative w-full">
       <ScoutInfoBar />
       {state.phase === "auto" ? (
         <Auto />
