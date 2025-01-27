@@ -151,6 +151,16 @@ export const stateReducer = (state, action) => {
           [action.key]: state[action.phase][action.key] + 1,
         },
       };
+    case "TOGGLE_IN_PHASE":
+      // toggle the phase data at the phase specified
+      return {
+        ...state,
+        history: [...state.history, state],
+        [action.phase]: {
+          ...state[action.phase],
+          [action.key]: !state[action.phase][action.key],
+        },
+      };
     case "UNDO":
       // undo the last action
       if (state.history.length === 0) return state;
