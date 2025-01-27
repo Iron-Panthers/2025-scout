@@ -4,10 +4,10 @@ import Button from "./inputs/Button";
 
 /**
  * A component that allows the user to score coral
- * @param {*} { handleClose, phase = "teleop" }
+ * @param {*} { phase = "teleop" }
  * @returns {*}
  */
-const CoralScoring = ({ handleClose, phase = "teleop" }) => {
+const CoralScoring = ({ phase = "teleop" }) => {
   return (
     <div className="max-w-full overflow-x-auto flex flex-row gap-2 flex-1">
       {/* insert svg of thingy here */}
@@ -18,28 +18,24 @@ const CoralScoring = ({ handleClose, phase = "teleop" }) => {
           stateKey={"coralScoredL4"}
           label={"Level 4"}
           color={"green"}
-          handleClose={handleClose}
         />
         <CoralScoringButton
           phase={phase}
           stateKey={"coralScoredL3"}
           label={"Level 3"}
           color={"amber"}
-          handleClose={handleClose}
         />
         <CoralScoringButton
           phase={phase}
           stateKey={"coralScoredL2"}
           label={"Level 2"}
           color={"amber"}
-          handleClose={handleClose}
         />
         <CoralScoringButton
           phase={phase}
           stateKey={"coralScoredL1"}
           label={"Level 1"}
           color={"red"}
-          handleClose={handleClose}
         />
       </div>
     </div>
@@ -52,7 +48,7 @@ const CoralScoring = ({ handleClose, phase = "teleop" }) => {
  * @param {*} { phase, stateKey, label, color, handleClose }
  * @returns {*}
  */
-const CoralScoringButton = ({ phase, stateKey, label, color, handleClose }) => {
+const CoralScoringButton = ({ phase, stateKey, label, color }) => {
   const [state, dispatch] = useAppState();
   return (
     <Button
@@ -64,7 +60,6 @@ const CoralScoringButton = ({ phase, stateKey, label, color, handleClose }) => {
           phase: phase === "auto" || phase === "teleop" ? phase : "teleop", // if its not auto or teleop then its teleop
           key: stateKey,
         });
-        handleClose();
       }}
       className={"flex-1 relative"}
     >
