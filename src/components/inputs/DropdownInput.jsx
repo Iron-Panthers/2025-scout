@@ -59,7 +59,7 @@ const DropdownInput = ({
         className="rounded-md border border-dark bg-white dark:border-light dark:bg-black flex-grow"
       >
         {options.map((option, index) => (
-          <option key={index} value={option.value}>
+          <option key={option.value} value={option.value}>
             {option.label}
           </option>
         ))}

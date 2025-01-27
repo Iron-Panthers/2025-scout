@@ -33,7 +33,7 @@ const Checkbox = ({
         dispatch({
           type: "TOGGLE_IN_PHASE",
           phase,
-          payload: stateProp,
+          key: stateProp,
         });
       } else {
         dispatch({
@@ -51,7 +51,7 @@ const Checkbox = ({
         type="checkbox"
         value=""
         className=""
-        checked={value ?? phase ? state[phase][stateProp] : state[stateProp]}
+        checked={value ?? (phase ? state[phase][stateProp] : state[stateProp])}
         onChange={handleChange}
       />
       <span className="ms-3 text-md font-medium text-gray-900 dark:text-gray-300">
