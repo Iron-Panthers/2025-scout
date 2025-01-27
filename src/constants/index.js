@@ -33,7 +33,7 @@ const reviewToggles = [
 
 const googleAPIConstants = {
   scriptURL:
-    "https://script.google.com/a/macros/coderedrobotics.com/s/AKfycbwAfIVWsunGlf3qTKATp-xsMe6InTJ4MSI8MDXznsbS1GPKMump9za5xT-ZuU5M-otMnQ/exec",
+    "https://script.google.com/macros/s/AKfycbwAfIVWsunGlf3qTKATp-xsMe6InTJ4MSI8MDXznsbS1GPKMump9za5xT-ZuU5M-otMnQ/exec",
   sheetName: "Data Dump",
   colNumber: 1,
 };
