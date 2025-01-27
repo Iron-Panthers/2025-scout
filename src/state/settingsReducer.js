@@ -15,6 +15,7 @@ export const initialSettings = {
   darkMode: false,
   autoIncreaseMatch: true,
   autoAutofillTeamNumber: false,
+  scoutingPageTransitions: true,
   eventID: "2024cacc",
   googleSheetLink:
     "https://docs.google.com/spreadsheets/d/18aaCpi5fXiX6brnfSokG2z294Vt7ImoQWLaaExzSLJE/edit",
@@ -40,6 +41,12 @@ export const settingsInfo = [
     key: "autoAutofillTeamNumber",
     type: "boolean",
     description: "Automatically autofill team number when possible",
+  },
+  {
+    name: "Scouting Page Transitions",
+    key: "scoutingPageTransitions",
+    type: "boolean",
+    description: "Enable page transitions",
   },
   {
     name: "Rick Roll",

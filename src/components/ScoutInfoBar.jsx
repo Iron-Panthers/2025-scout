@@ -12,7 +12,7 @@ const ScoutInfoBar = () => {
       }
     >
       <div>Match: {state.matchNumber}</div>
-      <div>Team: {state.teamNumber}</div>
+      <div>Team: {state.team}</div>
       <div>Scouter: {state.scouterName}</div>
       <div>Phase: {state.phase}</div>
       <Button
