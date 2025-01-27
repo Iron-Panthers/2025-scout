@@ -14,14 +14,10 @@ export const initialSettings = {
   },
   darkMode: false,
   autoIncreaseMatch: true,
-  autoAutofillTeamNumber: false,
-  eventID: "2024miken",
+  autoAutofillTeamNumber: true,
+  eventID: "2024mimus",
   googleSheetLink:
-<<<<<<< HEAD
-    "https://docs.google.com/spreadsheets/d/1h0gSCY-ZWZskMp37Uva4hfjcncRGoFHKk2RqDea3jK0/edit?gid=195681231#gid=195681231",
-=======
     "https://docs.google.com/spreadsheets/d/1Q9UFEYUi2YjhTI84I-R0SoF4drZWVNoXEb4i9eGk1Cw/edit?gid=0#gid=0",
->>>>>>> 0396beea699481a21e172013662ea2ebd8e66c19
   rickRoll: false,
   subwaySurf: false,
 };
@@ -49,7 +45,7 @@ export const settingsInfo = [
     name: "Event ID",
     key: "eventID",
     type: "string",
-    description: "Enter the event ID. format: YYYY[EventCode] (e.g. 2024miken)",
+    description: "Enter the event ID. format: YYYY[EventCode] (e.g. 2024mimus)",
   },
   {
     name: "Google Sheet Link",
