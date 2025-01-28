@@ -22,15 +22,19 @@ const Scout = () => {
     animate: {
       x: 0,
       transition: {
-        duration: 0.5,
-        ease: "easeInOut",
+        duration: 0.3,
+        type: "spring",
+        damping: 30,
+        stiffness: 150,
       },
     },
     exit: (direction) => ({
       x: direction < 0 ? "100%" : "-100%",
       transition: {
-        duration: 0.5,
-        ease: "easeInOut",
+        duration: 0.3,
+        type: "spring",
+        damping: 30,
+        stiffness: 150,
       },
     }),
   };

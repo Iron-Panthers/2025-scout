@@ -16,6 +16,7 @@ export const initialSettings = {
   autoIncreaseMatch: true,
   autoAutofillTeamNumber: false,
   scoutingPageTransitions: true,
+  stimulation: true,
   eventID: "2024cacc",
   googleSheetLink:
     "https://docs.google.com/spreadsheets/d/18aaCpi5fXiX6brnfSokG2z294Vt7ImoQWLaaExzSLJE/edit",
@@ -47,6 +48,13 @@ export const settingsInfo = [
     key: "scoutingPageTransitions",
     type: "boolean",
     description: "Enable page transitions",
+  },
+  {
+    name: "Stimulation",
+    key: "stimulation",
+    type: "boolean",
+    description:
+      "Enable input and page stimulation (cool animations for the extra dopamine)",
   },
   {
     name: "Rick Roll",
