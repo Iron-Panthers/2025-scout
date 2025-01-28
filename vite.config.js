@@ -4,6 +4,6 @@ import { VitePWA } from "vite-plugin-pwa";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), VitePWA({ registerType: "auto-update" })],
+  plugins: [react(), VitePWA({ registerType: "auto-update" })], // to enable PWA
   base: "/2025-scout",
 });

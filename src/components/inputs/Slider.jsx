@@ -8,6 +8,8 @@ import { useAppState } from "../../state/state";
  *   label,
  *   maxValue = 5,
  *   minValue = 0,
+ *   maxDescription,
+ *   minDescription,
  *   value,
  *   onChange,
  *   stateProp,
@@ -15,12 +17,14 @@ import { useAppState } from "../../state/state";
  *   phase, // only used if we are setting inside of a phase
  *   ...rest
  * }
- * @returns {*}
+ * @return {*}
  */
 const Slider = ({
   label,
   maxValue = 5,
   minValue = 0,
+  maxDescription,
+  minDescription,
   value,
   onChange,
   stateProp,
@@ -77,9 +81,25 @@ const Slider = ({
         className="w-full h-2 rounded-lg appearance-none bg-gradient-to-r from-red-500 to-green-500 outline-none opacity-70 transition-opacity duration-200 hover:opacity-100"
         {...rest}
       />
-      <div className="flex justify-between w-full mt-2">
+      <div className="w-full mt-2 text-sm relative mb-8">
         {new Array(maxValue - minValue + 1).fill(0).map((_, index) => (
-          <span key={index}>{index + minValue}</span>
+          <span
+            key={index}
+            className="absolute"
+            style={{
+              left: `${(95 / (maxValue - minValue)) * index + 2.5}%`,
+              transform: "translateX(-50%)",
+            }}
+          >
+            <div className="text-center">{index + minValue}</div>
+            {index == 0 ? (
+              <div>{minDescription}</div>
+            ) : index == maxValue - minValue ? (
+              <div>{maxDescription}</div>
+            ) : (
+              ""
+            )}
+          </span>
         ))}
       </div>
     </div>

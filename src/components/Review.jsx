@@ -21,6 +21,8 @@ const Review = () => {
             stateProp={"defense"}
             maxValue={3}
             minValue={1}
+            maxDescription={"Best"}
+            minDescription={"Worst"}
           />
         }
         {
