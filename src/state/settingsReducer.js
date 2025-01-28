@@ -12,7 +12,7 @@ export const initialSettings = {
     minor: parseInt(versionArray[1]),
     patch: parseInt(versionArray[2]),
   },
-  darkMode: false,
+  darkMode: true,
   autoIncreaseMatch: true,
   autoAutofillTeamNumber: false,
   scoutingPageTransitions: true,
