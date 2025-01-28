@@ -1,5 +1,5 @@
-import { getSettings } from "./settingsReducer";
 import { csvApi } from "../../package.json";
+import { getSettings } from "./settingsReducer";
 
 const qualitativeTeam = {
   team: undefined, // e.g. 5026
@@ -89,7 +89,6 @@ export const stateReducer = (state, action) => {
       // e.g. increase match number by one, save scouter name, etc.
       return {
         ...initialState,
-        history: [...state.history, state],
         matchNumber:
           typeof state.matchNumber === "number" && action.increaseMatch
             ? state.matchNumber + 1

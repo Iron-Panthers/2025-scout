@@ -1,7 +1,7 @@
 import React from "react";
-import ShortTextInput from "./inputs/ShortTextInput";
-import DropdownInput from "./inputs/DropdownInput";
 import Checkbox from "./inputs/Checkbox";
+import DropdownInput from "./inputs/DropdownInput";
+import ShortTextInput from "./inputs/ShortTextInput";
 
 const EditSection = ({ section, phase }) => {
   return (
@@ -45,6 +45,7 @@ const EditSection = ({ section, phase }) => {
                   label={field.label}
                   options={field.options}
                   stateProp={field.key}
+                  key={field.key}
                   phase={phase}
                 />
               );

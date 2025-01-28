@@ -1,6 +1,24 @@
 import React, { useState } from "react";
 import { useAppState } from "../../state/state";
 
+/**
+ * A short text input
+ *
+ * @param {*} {
+ *   fillColor,
+ *   label,
+ *   value,
+ *   placeholder,
+ *   onChange,
+ *   axis = "vertical",
+ *   stateProp,
+ *   className,
+ *   type = "text",
+ *   phase, // only used if we are setting inside of a phase
+ *   ...rest
+ * }
+ * @returns {*}
+ */
 const ShortTextInput = ({
   fillColor,
   label,

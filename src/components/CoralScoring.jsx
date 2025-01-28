@@ -1,50 +1,54 @@
-import React from "react";
+import { reefDiagram } from "../assets";
 import { useAppState } from "../state/state";
 import Button from "./inputs/Button";
-import { reefDiagram } from "../assets";
 
-const CoralScoringMenu = ({ handleClose, phase = "teleop" }) => {
-  const [state, dispatch] = useAppState();
+/**
+ * A component that allows the user to score coral
+ * @param {*} { phase = "teleop" }
+ * @returns {*}
+ */
+const CoralScoring = ({ phase = "teleop" }) => {
   return (
-    <div className="flex flex-row h-full p-2 gap-2 overflow-hidden">
+    <div className="max-w-full overflow-x-auto flex flex-row gap-2 flex-1">
       {/* insert svg of thingy here */}
-      <img src={reefDiagram} className="max-h-full object-contain" />
+      <img src={reefDiagram} className="h-auto" alt="reef diagram"></img>
       <div className="flex flex-col gap-2 flex-1">
         <CoralScoringButton
           phase={phase}
           stateKey={"coralScoredL4"}
           label={"Level 4"}
           color={"green"}
-          handleClose={handleClose}
         />
         <CoralScoringButton
           phase={phase}
           stateKey={"coralScoredL3"}
           label={"Level 3"}
           color={"amber"}
-          handleClose={handleClose}
         />
         <CoralScoringButton
           phase={phase}
           stateKey={"coralScoredL2"}
           label={"Level 2"}
           color={"amber"}
-          handleClose={handleClose}
         />
         <CoralScoringButton
           phase={phase}
           stateKey={"coralScoredL1"}
           label={"Level 1"}
           color={"red"}
-          handleClose={handleClose}
         />
       </div>
-      <Button label={"Back"} onClick={handleClose} />
     </div>
   );
 };
 
-const CoralScoringButton = ({ phase, stateKey, label, color, handleClose }) => {
+/**
+ * A button that increments the coral scoring state state when clicked
+ *
+ * @param {*} { phase, stateKey, label, color, handleClose }
+ * @returns {*}
+ */
+const CoralScoringButton = ({ phase, stateKey, label, color }) => {
   const [state, dispatch] = useAppState();
   return (
     <Button
@@ -56,7 +60,6 @@ const CoralScoringButton = ({ phase, stateKey, label, color, handleClose }) => {
           phase: phase === "auto" || phase === "teleop" ? phase : "teleop", // if its not auto or teleop then its teleop
           key: stateKey,
         });
-        handleClose();
       }}
       className={"flex-1 relative"}
     >
@@ -67,4 +70,4 @@ const CoralScoringButton = ({ phase, stateKey, label, color, handleClose }) => {
   );
 };
 
-export default CoralScoringMenu;
+export default CoralScoring;

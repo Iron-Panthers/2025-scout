@@ -1,6 +1,22 @@
 import React, { useState } from "react";
 import { useAppState } from "../../state/state";
 
+/**
+ * A slider input that allows you to select a value between a min and max value
+ *
+ * @param {*} {
+ *   label,
+ *   maxValue = 5,
+ *   minValue = 0,
+ *   value,
+ *   onChange,
+ *   stateProp,
+ *   className,
+ *   phase, // only used if we are setting inside of a phase
+ *   ...rest
+ * }
+ * @returns {*}
+ */
 const Slider = ({
   label,
   maxValue = 5,

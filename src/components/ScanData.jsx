@@ -1,10 +1,10 @@
 import React, { useEffect, useMemo, useState } from "react";
-import ResetButton from "./inputs/button_variants/ResetButton";
-import Button from "./inputs/Button";
 import QRCode from "react-qr-code";
-import { useAppState, useSettings } from "../state/state";
 import { filterState, flattenState, stateToCsv } from "../api/csvApi";
 import { submitToGoogleSheet } from "../api/googleSheetApi";
+import { useAppState, useSettings } from "../state/state";
+import Button from "./inputs/Button";
+import ResetButton from "./inputs/button_variants/ResetButton";
 
 const ScanData = () => {
   const [state, dispatch] = useAppState();
@@ -23,7 +23,7 @@ const ScanData = () => {
   const value = useMemo(() => stateToCsv(state), [state]);
 
   return (
-    <div className="text-2xl flex flex-col sm:flex-row h-full w-full">
+    <div className="text-2xl flex flex-col xs:flex-row h-full w-full">
       {/* Google sheet submitting modal to make sure that it actually submits */}
       {googleSheetSubmitStatus !== "none" && (
         <div className="absolute w-full h-full bg-black bg-opacity-50 text-center flex flex-col justify-center items-center">

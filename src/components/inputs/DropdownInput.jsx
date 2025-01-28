@@ -1,6 +1,22 @@
 import React from "react";
 import { useAppState } from "../../state/state";
 
+/**
+ * A dropdown input component
+ *
+ * @param {*} {
+ *   fillColor,
+ *   label,
+ *   options,
+ *   onChange,
+ *   value,
+ *   axis = "vertical",
+ *   stateProp,
+ *   className,
+ *   ...rest
+ * }
+ * @returns {*}
+ */
 const DropdownInput = ({
   fillColor,
   label,
@@ -43,7 +59,7 @@ const DropdownInput = ({
         className="rounded-md border border-dark bg-white dark:border-light dark:bg-black flex-grow"
       >
         {options.map((option, index) => (
-          <option key={index} value={option.value}>
+          <option key={option.value} value={option.value}>
             {option.label}
           </option>
         ))}

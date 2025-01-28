@@ -12,10 +12,16 @@ export const initialSettings = {
     minor: parseInt(versionArray[1]),
     patch: parseInt(versionArray[2]),
   },
-  darkMode: false,
+  darkMode: true,
   autoIncreaseMatch: true,
+<<<<<<< HEAD
   autoAutofillTeamNumber: true,
   eventID: "2024miken",
+=======
+  autoAutofillTeamNumber: false,
+  scoutingPageTransitions: true,
+  eventID: "2024cacc",
+>>>>>>> dfc6815608cbf33e188ea56f6d637765c7c857ad
   googleSheetLink:
     "https://docs.google.com/spreadsheets/d/1Q9UFEYUi2YjhTI84I-R0SoF4drZWVNoXEb4i9eGk1Cw/edit?gid=0#gid=0",
   rickRoll: false,
@@ -42,6 +48,28 @@ export const settingsInfo = [
     description: "Automatically autofill team number when possible",
   },
   {
+<<<<<<< HEAD
+=======
+    name: "Scouting Page Transitions",
+    key: "scoutingPageTransitions",
+    type: "boolean",
+    description: "Enable page transitions",
+  },
+  {
+    name: "Rick Roll",
+    key: "rickRoll",
+    type: "boolean",
+    description: "Enable rick roll - please don't do this in a competition",
+  },
+  {
+    name: "Subway Surf",
+    key: "subwaySurf",
+    type: "boolean",
+    description:
+      "Increase your concentration- please don't do this in a competition",
+  },
+  {
+>>>>>>> dfc6815608cbf33e188ea56f6d637765c7c857ad
     name: "Event ID",
     key: "eventID",
     type: "string",
