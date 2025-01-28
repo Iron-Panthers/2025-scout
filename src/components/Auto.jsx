@@ -19,12 +19,12 @@ const Auto = () => {
   }
 
   return (
-    <div className="flex flex-row p-2 gap-2 bg-red-500 bg-opacity-10 relative h-full max-w-full overflow-x-auto">
+    <div className="flex flex-col xs:flex-row p-2 gap-2 bg-red-500 bg-opacity-10 relative h-full max-w-full overflow-x-auto">
       <Button
         label={state.auto.leave ? "Robot Left" : "Robot Leave?"}
         color="red"
         disabled={state.auto.leave}
-        className={"w-1/6"}
+        className={"h-1/6 xs:w-1/6 xs:h-auto"}
         onClick={() => {
           dispatch({
             type: "SET_IN_PHASE",
@@ -39,28 +39,15 @@ const Auto = () => {
         onClick={() => {
           setAlgaeActionMenu(true);
         }}
-        className={"w-1/6"}
+        className={"h-1/6 xs:w-1/6 xs:h-auto"}
       >
-        <div className="size-16 bg-[#00ffd7] rounded-full mx-auto p-2 shadow-2xl"></div>
+        <div className="size-8 xs:size-16 bg-[#00ffd7] rounded-full mx-auto p-2 shadow-2xl"></div>
       </Button>
-      {/* <Button
-        label={"Coral Scoring"}
-        color="gray"
-        className={"flex-1"}
-        onClick={() => {
-          setCoralScoringMenu(true);
-        }}
-      >
-        <img
-          src={coralIcon}
-          className="m-auto max-h-28 -rotate-12 my-2 shadow-2xl"
-        ></img>
-      </Button> */}
       <CoralScoring phase="auto" />
       <Button
         label={"End Auto"}
         color="green"
-        className={"w-1/6"}
+        className={"h-1/6 xs:w-1/6 xs:h-auto"}
         onClick={() => {
           dispatch({ type: "SET_PHASE", phase: "teleop" });
         }}

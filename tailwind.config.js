@@ -22,6 +22,9 @@ export default {
         brand: ["Teko", "sans-serif"],
         body: ["Roboto", "sans-serif"],
       },
+      screens: {
+        xs: "475px",
+      },
     },
   },
   darkMode: "class",
