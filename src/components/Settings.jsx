@@ -1,17 +1,17 @@
 import React from "react";
-import { useAppState, useSettings } from "../state/state";
-import { settingsInfo } from "../state/settingsReducer";
-import Button from "./inputs/Button";
-import ToggleButton from "./inputs/ToggleButton";
-import ShortTextInput from "./inputs/ShortTextInput";
 import { version } from "../../package.json";
+import { settingsInfo } from "../state/settingsReducer";
+import { useAppState, useSettings } from "../state/state";
+import Button from "./inputs/Button";
+import ShortTextInput from "./inputs/ShortTextInput";
+import ToggleButton from "./inputs/ToggleButton";
 
 const Settings = () => {
   const [settings, dispatchSettings] = useSettings();
   const [state, dispatch] = useAppState();
 
   return (
-    <div className="flex flex-col items-center relative h-full overflow-hidden">
+    <div className="flex flex-col items-center relative overflow-hidden">
       <Button
         label={"Back"}
         className="absolute top-2 left-2"
@@ -21,7 +21,7 @@ const Settings = () => {
       />
       <div className="text-2xl font-bold mt-4">Settings</div>
       <div className="text-xs mb-4">Version {version}</div>
-      <div className="flex flex-col overflow-scroll w-3/4">
+      <div className="flex flex-col overflow-scroll w-3/4 flex-1">
         {settingsInfo.map((settingInfo, index) => {
           return (
             <div key={index} className="m-2">

@@ -11,9 +11,10 @@ import { useSettings } from "../../state/state";
  *   onClick,
  *   className,
  *   children,
+ *   animate = true, // weather it animates (doesn't if the setting disable stimulation)
  *   ...rest
  * }
- * @returns {*}
+ * @return {*}
  */
 const Button = ({
   color = "blue",
@@ -21,6 +22,7 @@ const Button = ({
   onClick,
   className,
   children,
+  animate = true, // weather it animates (doesn't if the setting disable stimulation)
   ...rest
 }) => {
   const [settings] = useSettings();
@@ -47,10 +49,12 @@ const Button = ({
       className={colorVariants[color] + " " + baseStyles + " " + className}
       onClick={handleClick}
       whileTap={
-        settings.stimulation && !rest.disabled ? { scale: 1.05 } : undefined
+        settings.stimulation && !rest.disabled && animate
+          ? { scale: 1.05 }
+          : undefined
       }
       transition={
-        settings.stimulation
+        settings.stimulation && !rest.disabled && animate
           ? { type: "spring", stiffness: 500, damping: 10 }
           : undefined
       }

@@ -1,7 +1,7 @@
 import React from "react";
-import Button from "../Button";
-import { useAppState } from "../../../state/state";
 import { triggerHapticFeedback } from "../../../api/hapticFeedbackApi";
+import { useAppState } from "../../../state/state";
+import Button from "../Button";
 
 const NextButton = ({ ...rest }) => {
   const [state, dispatch] = useAppState();
@@ -9,6 +9,7 @@ const NextButton = ({ ...rest }) => {
     <Button
       label={"Next"}
       color="green"
+      animate={false}
       onClick={() => {
         triggerHapticFeedback();
         dispatch({ type: "NEXT_MODE" });

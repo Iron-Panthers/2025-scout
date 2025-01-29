@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
+import ConfettiExplosion from "react-confetti-explosion";
 import QRCode from "react-qr-code";
 import { filterState, flattenState, stateToCsv } from "../api/csvApi";
 import { submitToGoogleSheet } from "../api/googleSheetApi";
@@ -26,7 +27,7 @@ const ScanData = () => {
     <div className="text-2xl flex flex-col xs:flex-row h-full w-full">
       {/* Google sheet submitting modal to make sure that it actually submits */}
       {googleSheetSubmitStatus !== "none" && (
-        <div className="absolute w-full h-full bg-black bg-opacity-50 text-center flex flex-col justify-center items-center">
+        <div className="absolute w-full h-full bg-black bg-opacity-50 text-center flex flex-col justify-center items-center z-50">
           <div className="w-1/2 bg-black rounded-lg p-2 text-white">
             {googleSheetSubmitStatus === "pending" ? (
               <>
@@ -42,6 +43,17 @@ const ScanData = () => {
               </>
             ) : googleSheetSubmitStatus === "success" ? (
               <>
+                {settings.stimulation && (
+                  <ConfettiExplosion
+                    className="absolute left-1/2"
+                    particleCount={250}
+                    force={0.8}
+                    duration={3000}
+                    zIndex={1000}
+                    width={1000}
+                    height={1000}
+                  />
+                )}
                 <div className="font-bold m-2 text-3xl">Success!</div>
                 <ResetButton
                   className={"text-lg"}
