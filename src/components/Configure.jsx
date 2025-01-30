@@ -230,6 +230,14 @@ const Configure = () => {
             dispatch({ type: "SET", payload: { mode: "Settings" } });
           }}
         />
+        <Button
+          label={"🕑"}
+          color="amber"
+          className="text-2xl flex-grow"
+          onClick={() => {
+            dispatch({ type: "SET", payload: { mode: "PastMatches" } });
+          }}
+        />
         <NextButton className={"flex-grow"} disabled={!canGoNext()} />
       </div>
     </div>

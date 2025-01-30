@@ -1,12 +1,13 @@
 import React, { useMemo } from "react";
 import { useAppState } from "../state/state";
 import Configure from "./Configure";
-import Settings from "./Settings";
+import Edit from "./Edit";
+import PastMatches from "./PastMatches";
 import Qualitative from "./Qualitative";
-import Scout from "./Scout";
 import Review from "./Review";
 import ScanData from "./ScanData";
-import Edit from "./Edit";
+import Scout from "./Scout";
+import Settings from "./Settings";
 
 const CurrentMode = () => {
   const [state, dispatch] = useAppState();
@@ -26,6 +27,8 @@ const CurrentMode = () => {
         return <ScanData />;
       case "Edit":
         return <Edit />;
+      case "PastMatches":
+        return <PastMatches />;
       default:
         return (
           <div>

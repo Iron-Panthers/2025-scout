@@ -7,9 +7,15 @@ const qualitativeTeam = {
   fieldAwareness: 1, // 1-3
 };
 
+// i know they can technically be the same but it's very unlikely due to the time stamp in the front
+export const getUniqueId = () => {
+  return `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+};
+
 export const initialState = {
   // full app state
-  mode: "Configure", // Configure, Scout, Review, ScanData, Settings, Qualitative, Edit
+  id: getUniqueId(), // unique ID for the state
+  mode: "Configure", // Configure, Scout, Review, ScanData, Settings, Qualitative, Edit, PastMatches
 
   // configuration state
   team: undefined, // e.g. 5026
@@ -89,6 +95,7 @@ export const stateReducer = (state, action) => {
       // e.g. increase match number by one, save scouter name, etc.
       return {
         ...initialState,
+        id: getUniqueId(), // reset unique ID
         matchNumber:
           typeof state.matchNumber === "number" && action.increaseMatch
             ? state.matchNumber + 1
