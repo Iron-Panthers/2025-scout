@@ -13,7 +13,10 @@ const PastMatches = () => {
   const [displayedMatchIndex, setDisplayedMatchIndex] = useState(0);
 
   const value = useMemo(
-    () => stateToCsv(pastMatches[displayedMatchIndex]),
+    () =>
+      pastMatches.length !== 0
+        ? stateToCsv(pastMatches[displayedMatchIndex])
+        : "you aren't sigma, theres nothing here dog",
     [displayedMatchIndex, pastMatches]
   );
 
@@ -26,7 +29,7 @@ const PastMatches = () => {
     <div className="flex flex-col h-full">
       <div className="flex flex-col xs:flex-row flex-1 h-4/5">
         {/* Side menu */}
-        <div className="flex flex-row-reverse xs:flex-col-reverse justify-start gap-1 h-1/4 sm:w-1/4 overflow-x-scroll border-r-2 border-black dark:border-white xs:h-full ">
+        <div className="flex flex-row-reverse xs:flex-col-reverse justify-end gap-1 h-1/4 sm:w-1/4 overflow-x-scroll border-r-2 border-black dark:border-white xs:h-full ">
           {pastMatches?.map((match, index) => (
             <Button
               key={index}
@@ -38,6 +41,12 @@ const PastMatches = () => {
               <div>Team: {match.team}</div>
             </Button>
           ))}
+          {
+            // If we have no past matches, display a message
+            pastMatches.length === 0 && (
+              <div className="text-center">No past matches</div>
+            )
+          }
         </div>
         {/* QR Code */}
         <div className="bg-white p-2">
