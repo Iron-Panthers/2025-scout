@@ -14,7 +14,6 @@ export const saveMatch = (matchData, dispatch) => {
 
   // Save match to local storage
   matches.push(filteredMatchData);
-  console.log(matches);
 
   try {
     localStorage.setItem("pastMatches", JSON.stringify(matches));

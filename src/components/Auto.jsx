@@ -11,7 +11,7 @@ const Auto = () => {
   const [settings] = useSettings();
 
   return (
-    <div className="flex flex-col xs:flex-row p-2 gap-2 bg-red-500 bg-opacity-10 relative h-full max-w-full overflow-x-auto">
+    <div className="flex flex-col xs:flex-row p-2 gap-2 bg-red-500 bg-opacity-15 relative h-full max-w-full overflow-x-auto">
       <Button
         label={state.auto.leave ? "Robot Left" : "Robot Leave?"}
         color="red"

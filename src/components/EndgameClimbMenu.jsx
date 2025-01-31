@@ -17,7 +17,7 @@ const EndgameClimbMenu = () => {
   return (
     <div className="flex flex-col gap-2 flex-1">
       <ShortTextInput
-        label={"Climbing Time"}
+        label={"Climb Start Time"}
         type="number"
         placeholder={"Enter current time here"}
         className={"h-1/3"}

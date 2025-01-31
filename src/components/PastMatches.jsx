@@ -27,9 +27,9 @@ const PastMatches = () => {
 
   return (
     <div className="flex flex-col h-full">
-      <div className="flex flex-col xs:flex-row flex-1 h-4/5">
+      <div className="flex flex-col xs:flex-row flex-1 h-1/4">
         {/* Side menu */}
-        <div className="flex flex-row-reverse xs:flex-col-reverse justify-end gap-1 h-1/4 sm:w-1/4 overflow-x-scroll border-r-2 border-black dark:border-white xs:h-full ">
+        <div className="flex flex-row-reverse xs:flex-col-reverse justify-end gap-1 h-1/4 sm:w-1/4 border-r-2 border-black dark:border-white xs:h-full overflow-scroll">
           {pastMatches?.map((match, index) => (
             <Button
               key={index}

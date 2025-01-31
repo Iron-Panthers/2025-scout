@@ -12,7 +12,7 @@ const Teleop = () => {
   const [settings] = useSettings();
 
   return (
-    <div className="flex flex-col xs:flex-row h-full p-2 gap-2 bg-green-500 bg-opacity-10 max-w-full overflow-x-auto">
+    <div className="flex flex-col xs:flex-row h-full p-2 gap-2 bg-blue-500 bg-opacity-15 max-w-full overflow-x-auto">
       <Button
         label={"Back to Auto"}
         color="blue"

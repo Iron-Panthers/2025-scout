@@ -63,7 +63,7 @@ const CoralScoringButton = ({ phase, stateKey, label, color }) => {
       }}
       className={"flex-1 relative"}
     >
-      <div className="absolute top-1/2 left-2 -translate-y-1/2 text-xl">
+      <div className="absolute top-1/2 left-3 -translate-y-1/2 text-xl">
         {state[phase][stateKey] === 0 ? "" : state[phase][stateKey]}
       </div>
     </Button>
