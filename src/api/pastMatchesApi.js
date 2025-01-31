@@ -9,10 +9,28 @@ export const saveMatch = (matchData, dispatch) => {
     return;
   }
 
+  // if were saving the match, we should remove unneeded things from the state like history
+  const { history, ...filteredMatchData } = matchData;
+
   // Save match to local storage
-  matches.push(matchData);
-  localStorage.setItem("pastMatches", JSON.stringify(matches));
-  console.log(matchData);
+  matches.push(filteredMatchData);
+  console.log(matches);
+
+  try {
+    localStorage.setItem("pastMatches", JSON.stringify(matches));
+  } catch (e) {
+    if (e.name === "QuotaExceededError") {
+      // Handle quota exceeded error
+      console.error(
+        "Local storage quota exceeded. Consider removing old matches."
+      );
+      // Optionally, remove the oldest match and try again
+      matches.shift();
+      localStorage.setItem("pastMatches", JSON.stringify(matches));
+    } else {
+      throw e;
+    }
+  }
 };
 
 export const getPastMatches = () => {

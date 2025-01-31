@@ -75,19 +75,25 @@ export const initialState = {
 // the MODE is the current page that the user is on
 // the PHASE is the current phase of the match
 
+const pushHistory = (state) => {
+  const { history, ...rest } = state;
+  return {
+    ...state,
+    history: [...state.history, rest],
+  };
+};
+
 // action.type is the type of action that is being dispatched
 export const stateReducer = (state, action) => {
   switch (action.type) {
     case "SET":
       return {
-        ...state,
-        history: [...state.history, state],
+        ...pushHistory(state),
         ...action.payload,
       };
     case "TOGGLE":
       return {
-        ...state,
-        history: [...state.history, state],
+        ...pushHistory(state),
         [action.payload]: !state[action.payload],
       };
     case "RESET":
@@ -120,22 +126,19 @@ export const stateReducer = (state, action) => {
           ? ["Configure", "Qualitative", "ScanData"]
           : ["you fucked up"];
       return {
-        ...state,
-        history: [...state.history, state],
+        ...pushHistory(state),
         mode: modes[(modes.indexOf(state.mode) + 1) % modes.length],
       };
     case "SET_PHASE":
       // set our phase to be the phase specified
       return {
-        ...state,
-        history: [...state.history, state],
+        ...pushHistory(state),
         phase: action.phase,
       };
     case "SET_IN_QUAL":
       // set the team in the qualitative team array at the index specified
       return {
-        ...state,
-        history: [...state.history, state],
+        ...pushHistory(state),
         qualitativeTeams: state.qualitativeTeams.map((team, index) =>
           index === action.index ? { ...team, ...action.payload } : team
         ),
@@ -143,15 +146,13 @@ export const stateReducer = (state, action) => {
     case "SET_IN_PHASE":
       // set the phase data at the phase specified
       return {
-        ...state,
-        history: [...state.history, state],
+        ...pushHistory(state),
         [action.phase]: { ...state[action.phase], ...action.payload },
       };
     case "INCREMENT_IN_PHASE":
       // set the phase data at the phase specified
       return {
-        ...state,
-        history: [...state.history, state],
+        ...pushHistory(state),
         [action.phase]: {
           ...state[action.phase],
           [action.key]: state[action.phase][action.key] + 1,
@@ -160,8 +161,7 @@ export const stateReducer = (state, action) => {
     case "TOGGLE_IN_PHASE":
       // toggle the phase data at the phase specified
       return {
-        ...state,
-        history: [...state.history, state],
+        ...pushHistory(state),
         [action.phase]: {
           ...state[action.phase],
           [action.key]: !state[action.phase][action.key],

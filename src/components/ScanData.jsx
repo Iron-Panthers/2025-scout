@@ -22,7 +22,7 @@ const ScanData = () => {
     if (state) {
       saveMatch(state, dispatch);
     }
-  });
+  }, [state]);
 
   const value = useMemo(() => stateToCsv(state), [state]);
 
