@@ -39,7 +39,7 @@ const Teleop = () => {
             exit={settings.stimulation ? { opacity: 0, scale: 0 } : false}
             transition={
               settings.stimulation
-                ? { type: "spring", stiffness: 200, damping: 10, duration: 0.3 }
+                ? { type: "spring", stiffness: 300, damping: 20, duration: 0.1 }
                 : false
             }
             className="absolute inset-0 z-40 bg-white dark:bg-dark"
