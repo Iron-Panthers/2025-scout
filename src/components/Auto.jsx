@@ -25,38 +25,7 @@ const Auto = () => {
           });
         }}
       />
-      <Button
-        label={"Algae Action"}
-        color="turquoise"
-        onClick={() => {
-          setAlgaeActionMenu(true);
-        }}
-        className={"h-1/6 xs:w-1/6 xs:h-auto"}
-      >
-        <div className="size-8 xs:size-16 bg-[#00ffd7] rounded-full mx-auto p-2 shadow-2xl"></div>
-      </Button>
-      <AnimatePresence>
-        {algaeActionMenu && (
-          <motion.div
-            initial={settings.stimulation ? { opacity: 0, scale: 0 } : false}
-            animate={settings.stimulation ? { opacity: 1, scale: 1 } : false}
-            exit={settings.stimulation ? { opacity: 0, scale: 0 } : false}
-            transition={
-              settings.stimulation
-                ? { type: "spring", stiffness: 300, damping: 20, duration: 0.1 }
-                : false
-            }
-            className="absolute inset-0 z-40 bg-white dark:bg-dark"
-          >
-            <AlgaeActionMenu
-              handleClose={() => {
-                setAlgaeActionMenu(false);
-              }}
-              phase="auto"
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <AlgaeActionMenu phase="auto" />
       <CoralScoring phase="auto" />
       <Button
         label={"End Auto"}
