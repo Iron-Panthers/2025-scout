@@ -28,7 +28,7 @@ const AlgaeActionMenu = ({ phase }) => {
         <div className="flex-1 relative w-1/3 mx-auto">
           <img src={removeAlgaeIcon} className="full flex-1 z-10" />
         </div>
-        <div className="text-center absolute bottom-0 left-1/2 transform -translate-x-1/2 text-2xl z-10">
+        <div className="text-center absolute bottom-0 left-1/2 transform -translate-x-1/2 text-2xl z-10 drop-shadow-[0_0_1.2px_rgba(0,0,0,1)]">
           {state[phase].algaeRemoved}
         </div>
       </Button>
@@ -49,7 +49,7 @@ const AlgaeActionMenu = ({ phase }) => {
         <div className="h-1/3 relative w-full">
           <img src={algaeToNetIcon} className="object-contain w-full flex-1" />
         </div>
-        <div className="text-center absolute bottom-0 left-1/2 transform -translate-x-1/2 text-2xl z-10">
+        <div className="text-center absolute bottom-0 left-1/2 transform -translate-x-1/2 text-2xl z-10 drop-shadow-[0_0_1.2px_rgba(0,0,0,1)]">
           {state[phase].algaeInNet}
         </div>
       </Button>
@@ -73,7 +73,7 @@ const AlgaeActionMenu = ({ phase }) => {
             className="object-contain w-full flex-1"
           />
         </div>
-        <div className="text-center absolute bottom-0 left-1/2 transform -translate-x-1/2 text-2xl z-10">
+        <div className="text-center absolute bottom-0 left-1/2 transform -translate-x-1/2 text-2xl z-10 drop-shadow-[0_0_1.2px_rgba(0,0,0,1)]">
           {state[phase].algaeInProcessor}
         </div>
       </Button>

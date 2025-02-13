@@ -52,7 +52,6 @@ const CoralScoringButton = ({ phase, stateKey, label, color }) => {
   const [state, dispatch] = useAppState();
   return (
     <Button
-      label={label}
       color={color}
       onClick={() => {
         dispatch({
@@ -61,11 +60,14 @@ const CoralScoringButton = ({ phase, stateKey, label, color }) => {
           key: stateKey,
         });
       }}
-      className={"flex-1 relative"}
+      className={
+        "flex-1 relative flex flex-row justify-between items-center [&&]:px-1"
+      }
     >
-      <div className="absolute top-1/2 left-3 -translate-y-1/2 text-xl">
+      <div className="text-2xl">
         {state[phase][stateKey] === 0 ? "" : state[phase][stateKey]}
       </div>
+      <div>{label}</div>
     </Button>
   );
 };
