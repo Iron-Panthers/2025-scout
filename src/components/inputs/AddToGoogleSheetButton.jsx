@@ -80,7 +80,12 @@ const AddToGoogleSheetButton = ({ value, className, ...rest }) => {
         onClick={() => {
           console.log("Add to Google Sheet");
           setGoogleSheetSubmitStatus("pending");
-          submitToGoogleSheet(value, settings.googleSheetLink)
+          submitToGoogleSheet(
+            value,
+            settings.googleSheetLink,
+            settings.googleSheetTab,
+            settings.googleSheetColNumber
+          )
             .then((result) => {
               console.log("Result", result);
               setGoogleSheetSubmitStatus("success");

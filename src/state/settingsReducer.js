@@ -20,6 +20,8 @@ export const initialSettings = {
   eventID: "2024cacc",
   googleSheetLink:
     "https://docs.google.com/spreadsheets/d/18aaCpi5fXiX6brnfSokG2z294Vt7ImoQWLaaExzSLJE/edit",
+  googleSheetTab: "CSV Dump",
+  googleSheetColNumber: 3,
   rickRoll: false,
   subwaySurf: false,
 };
@@ -82,6 +84,20 @@ export const settingsInfo = [
     description:
       "Insert the link to the current scouting google sheet - make sure it is the correct link",
   },
+  {
+    name: "Google Sheet Tab",
+    key: "googleSheetTab",
+    type: "string",
+    description:
+      "Insert the name of the tab you want to read data from, should be CSV Dump by default for competition",
+  },
+  {
+    name: "Google Sheet Column Number",
+    key: "googleSheetColNumber",
+    type: "string",
+    description:
+      "Insert the column number you want to read data from, should be 3 by default for competition",
+  },
 ];
 
 export const getSettings = () => {
@@ -96,6 +112,8 @@ export const getSettings = () => {
     settings = {
       ...settings,
       googleSheetLink: initialSettings.googleSheetLink,
+      googleSheetTab: initialSettings.googleSheetTab,
+      googleSheetColNumber: initialSettings.googleSheetColNumber,
       eventID: initialSettings.eventID,
     };
   }
