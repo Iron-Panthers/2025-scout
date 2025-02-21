@@ -10,10 +10,10 @@ import Button from "./inputs/Button";
 const AlgaeActionMenu = ({ phase }) => {
   const [state, dispatch] = useAppState();
   return (
-    <div className="flex flex-row xs:flex-col h-full gap-2 flex-1">
+    <div className="flex flex-row xs:flex-col h-1/6 xs:h-full gap-2">
       <Button
         color="green"
-        className={"h-1/3 relative"}
+        className={"h-full xs:h-1/3 relative"}
         onClick={() => {
           dispatch({
             type: "INCREMENT_IN_PHASE",
@@ -34,7 +34,7 @@ const AlgaeActionMenu = ({ phase }) => {
       </Button>
       <Button
         color="green"
-        className={"h-1/3 relative"}
+        className={"h-full xs:h-1/3 relative"}
         onClick={() => {
           dispatch({
             type: "INCREMENT_IN_PHASE",
@@ -55,7 +55,7 @@ const AlgaeActionMenu = ({ phase }) => {
       </Button>
       <Button
         color="green"
-        className={"h-1/3 relative"}
+        className={"h-full xs:h-1/3 relative"}
         onClick={() => {
           dispatch({
             type: "INCREMENT_IN_PHASE",
