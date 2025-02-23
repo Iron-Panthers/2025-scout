@@ -21,7 +21,7 @@ export const initialSettings = {
   googleSheetLink:
     "https://docs.google.com/spreadsheets/d/18aaCpi5fXiX6brnfSokG2z294Vt7ImoQWLaaExzSLJE/edit",
   googleSheetTab: "CSV Dump",
-  googleSheetColNumber: 3,
+  googleSheetColNumber: 2,
   rickRoll: false,
   subwaySurf: false,
 };
