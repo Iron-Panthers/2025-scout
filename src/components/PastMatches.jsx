@@ -27,26 +27,29 @@ const PastMatches = () => {
 
   return (
     <div className="flex flex-col h-full">
-      <div className="flex flex-col xs:flex-row flex-1 h-1/4">
+      <div className="flex flex-col xs:flex-row flex-1">
         {/* Side menu */}
-        <div className="flex flex-row-reverse xs:flex-col-reverse justify-end gap-1 h-1/4 sm:w-1/4 border-r-2 border-black dark:border-white xs:h-full overflow-scroll">
-          {pastMatches?.map((match, index) => (
-            <Button
-              key={index}
-              color={index === displayedMatchIndex ? "blue" : "gray"}
-              onClick={() => setDisplayedMatchIndex(index)}
-            >
-              <div>Match #{match.matchNumber}</div>
-              <div>Role: {match.role}</div>
-              <div>Team: {match.team}</div>
-            </Button>
-          ))}
-          {
-            // If we have no past matches, display a message
-            pastMatches.length === 0 && (
-              <div className="text-center">No past matches</div>
-            )
-          }
+        <div className="overflow-x-auto xs:overflow-y-auto h-1/4 w-full xs:w-1/4 xs:h-full">
+          <div className="flex flex-row-reverse xs:flex-col-reverse justify-end gap-1">
+            {pastMatches?.map((match, index) => (
+              <Button
+                key={index}
+                color={index === displayedMatchIndex ? "blue" : "gray"}
+                onClick={() => setDisplayedMatchIndex(index)}
+                className={"w-full"}
+              >
+                <div>Match #{match.matchNumber}</div>
+                <div>Role: {match.role}</div>
+                <div>Team: {match.team}</div>
+              </Button>
+            ))}
+            {
+              // If we have no past matches, display a message
+              pastMatches.length === 0 && (
+                <div className="text-center">No past matches</div>
+              )
+            }
+          </div>
         </div>
         {/* QR Code */}
         <div className="bg-white p-2">

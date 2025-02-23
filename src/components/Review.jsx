@@ -51,20 +51,20 @@ const Review = () => {
           label={"Comments"}
           stateProp={"comments"}
           placeholder={"Enter any comments here"}
-          className={"text-base flex-grow"}
+          className={"text-base flex-1"}
         />
       </div>
       {/* Buttons Section */}
-      <div className="w-full xs:w-20 flex flex-row xs:flex-col justify-between gap-2 p-1">
+      <div className="w-full xs:w-20 flex flex-row xs:flex-col justify-between gap-2 h-[10%] xs:h-full">
         <Button
           label={"Edit"}
           color="blue"
           onClick={() => {
             dispatch({ type: "SET", payload: { mode: "Edit" } });
           }}
-          className={"flex-grow"}
+          className={"flex-1"}
         />
-        <NextButton className={"flex-grow"} />
+        <NextButton className={"flex-1"} />
       </div>
     </div>
   );

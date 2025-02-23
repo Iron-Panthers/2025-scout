@@ -31,6 +31,7 @@ const ScanData = () => {
     <div className="text-xl flex flex-col xs:flex-row h-full w-full">
       <Button
         label={"Back"}
+        className={"min-h-[10%] xs:h-full flex-1"}
         color="blue"
         onClick={() => {
           dispatch({ type: "SET", payload: { mode: "Review" } });
@@ -44,7 +45,7 @@ const ScanData = () => {
             increaseMatch: settings.autoIncreaseMatch,
           });
         }}
-        className="flex-1"
+        className="min-h-[10%] xs:h-full flex-1"
       />
       {/* QR Code */}
       <div className="bg-white p-4 ">
@@ -57,7 +58,10 @@ const ScanData = () => {
           className="h-full w-full"
         />
       </div>
-      <AddToGoogleSheetButton value={value} className={"flex-grow flex-1"} />
+      <AddToGoogleSheetButton
+        value={value}
+        className={"min-h-[10%] xs:h-full flex-1"}
+      />
     </div>
   );
 };
