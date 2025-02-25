@@ -33,9 +33,7 @@ const reviewToggles = [
 
 const googleAPIConstants = {
   scriptURL:
-    "https://script.google.com/macros/s/AKfycbzCgHhAONBzuULPxXG8oKCOAPp8mSf_YVUbuxKxWY_BAtp_Ed0DiERIVYnWv8rnIbYwMQ/exec",
-  sheetName: "Bruce's New Tab",
-  colNumber: 3,
+    "https://script.google.com/macros/s/AKfycbxj9pjLFR1K_3bG3mgi50MYmYha7iH2D8bIUcsHXfz8l8Kq1_h8o3KikmPb6JDyFEgv3Q/exec",
 };
 
 const editViewSections = [
@@ -139,10 +137,10 @@ const editViewSections = [
 ];
 
 export {
-  modes,
-  roles,
-  matchLevels,
-  reviewToggles,
-  googleAPIConstants,
   editViewSections,
+  googleAPIConstants,
+  matchLevels,
+  modes,
+  reviewToggles,
+  roles,
 };

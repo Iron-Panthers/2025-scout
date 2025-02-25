@@ -19,7 +19,7 @@ export const initialSettings = {
   stimulation: false,
   eventID: "2024cacc",
   googleSheetLink:
-    "https://docs.google.com/spreadsheets/d/18aaCpi5fXiX6brnfSokG2z294Vt7ImoQWLaaExzSLJE/edit",
+    "https://docs.google.com/spreadsheets/d/1rQB0826QaaPNTGK4WtcCZ1NMZiQTvrxvoT7IaoZEcQI/edit",
   googleSheetTab: "CSV Dump",
   googleSheetColNumber: 2,
   rickRoll: false,
