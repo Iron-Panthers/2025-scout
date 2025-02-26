@@ -38,11 +38,24 @@ const EndgameClimbMenu = () => {
               : "")
           }
           onClick={() => {
-            dispatch({
-              type: "SET_IN_PHASE",
-              phase: "endgame",
-              payload: { climbingCage: "shallow", attemptedClimb: true },
-            });
+            // toggle it
+            if (state.endgame.climbingCage === "shallow") {
+              dispatch({
+                type: "SET_IN_PHASE",
+                phase: "endgame",
+                payload: {
+                  climbingCage: undefined,
+                  attemptedClimb:
+                    state.endgame.climbSuccessful !== undefined ? true : false,
+                },
+              });
+            } else {
+              dispatch({
+                type: "SET_IN_PHASE",
+                phase: "endgame",
+                payload: { climbingCage: "shallow", attemptedClimb: true },
+              });
+            }
           }}
         />
         <Button
@@ -55,11 +68,24 @@ const EndgameClimbMenu = () => {
               : "")
           }
           onClick={() => {
-            dispatch({
-              type: "SET_IN_PHASE",
-              phase: "endgame",
-              payload: { climbingCage: "deep", attemptedClimb: true },
-            });
+            // toggle it
+            if (state.endgame.climbingCage === "deep") {
+              dispatch({
+                type: "SET_IN_PHASE",
+                phase: "endgame",
+                payload: {
+                  climbingCage: undefined,
+                  attemptedClimb:
+                    state.endgame.climbSuccessful !== undefined ? true : false,
+                },
+              });
+            } else {
+              dispatch({
+                type: "SET_IN_PHASE",
+                phase: "endgame",
+                payload: { climbingCage: "deep", attemptedClimb: true },
+              });
+            }
           }}
         />
         <Button
@@ -72,11 +98,24 @@ const EndgameClimbMenu = () => {
               : "")
           }
           onClick={() => {
-            dispatch({
-              type: "SET_IN_PHASE",
-              phase: "endgame",
-              payload: { climbSuccessful: false, attemptedClimb: true },
-            });
+            // toggle it
+            if (state.endgame.climbSuccessful === false) {
+              dispatch({
+                type: "SET_IN_PHASE",
+                phase: "endgame",
+                payload: {
+                  climbSuccessful: undefined,
+                  attemptedClimb:
+                    state.endgame.climbSuccessful !== undefined ? true : false,
+                },
+              });
+            } else {
+              dispatch({
+                type: "SET_IN_PHASE",
+                phase: "endgame",
+                payload: { climbSuccessful: false, attemptedClimb: true },
+              });
+            }
           }}
         />
         <Button
@@ -89,11 +128,24 @@ const EndgameClimbMenu = () => {
               : "")
           }
           onClick={() => {
-            dispatch({
-              type: "SET_IN_PHASE",
-              phase: "endgame",
-              payload: { climbSuccessful: true, attemptedClimb: true },
-            });
+            // toggle it
+            if (state.endgame.climbSuccessful === true) {
+              dispatch({
+                type: "SET_IN_PHASE",
+                phase: "endgame",
+                payload: {
+                  climbSuccessful: undefined,
+                  attemptedClimb:
+                    state.endgame.climbSuccessful !== undefined ? true : false,
+                },
+              });
+            } else {
+              dispatch({
+                type: "SET_IN_PHASE",
+                phase: "endgame",
+                payload: { climbSuccessful: true, attemptedClimb: true },
+              });
+            }
           }}
         />
       </div>

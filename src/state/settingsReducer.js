@@ -1,3 +1,4 @@
+import { pre } from "framer-motion/client";
 import { version } from "../../package.json";
 const versionArray = version.split(".");
 
@@ -7,17 +8,12 @@ export const initialSettings = {
     minor: parseInt(versionArray[1]),
     patch: parseInt(versionArray[2]),
   },
-  prevVersion: {
-    major: parseInt(versionArray[0]),
-    minor: parseInt(versionArray[1]),
-    patch: parseInt(versionArray[2]),
-  },
   darkMode: true,
   autoIncreaseMatch: true,
-  autoAutofillTeamNumber: false,
+  autoAutofillTeamNumber: true,
   scoutingPageTransitions: true,
   stimulation: false,
-  eventID: "2024cacc",
+  eventID: "2025isde1",
   googleSheetLink:
     "https://docs.google.com/spreadsheets/d/1rQB0826QaaPNTGK4WtcCZ1NMZiQTvrxvoT7IaoZEcQI/edit",
   googleSheetTab: "CSV Dump",
@@ -104,11 +100,21 @@ export const getSettings = () => {
   let settings = {
     ...initialSettings,
     ...JSON.parse(localStorage.getItem("settings") ?? "{}"),
+  };
+  const prevVersion = settings.version;
+
+  // update the version number
+  settings = {
+    ...settings,
     version: { ...initialSettings.version },
   };
 
   // updating settings if version has changed
-  if (settings.version.patch !== settings.prevVersion.patch) {
+  if (
+    settings.version.patch !== prevVersion.patch ||
+    settings.version.minor !== prevVersion.minor ||
+    settings.version.major !== prevVersion.major
+  ) {
     settings = {
       ...settings,
       googleSheetLink: initialSettings.googleSheetLink,
@@ -117,6 +123,7 @@ export const getSettings = () => {
       eventID: initialSettings.eventID,
     };
   }
+  localStorage.setItem("settings", JSON.stringify(settings));
   return settings;
 };
 
