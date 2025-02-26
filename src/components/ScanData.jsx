@@ -29,14 +29,16 @@ const ScanData = () => {
 
   return (
     <div className="text-xl flex flex-col xs:flex-row h-full w-full">
-      <Button
-        label={"Back"}
-        className={"min-h-[10%] xs:h-full flex-1"}
-        color="blue"
-        onClick={() => {
-          dispatch({ type: "SET", payload: { mode: "Review" } });
-        }}
-      />
+      {settings.scoutingType === "match" && (
+        <Button
+          label={"Back"}
+          className={"min-h-[10%] xs:h-full flex-1"}
+          color="blue"
+          onClick={() => {
+            dispatch({ type: "SET", payload: { mode: "Review" } });
+          }}
+        />
+      )}
       {/* Reset Button */}
       <ResetButton
         onClick={() => {
