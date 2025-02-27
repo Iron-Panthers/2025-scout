@@ -64,7 +64,7 @@ export const initialState = {
   ], // qualitative data for the teams - should be an array of three objects
 
   // review state
-  defense: 2, // slider 1,2,3 for defense quality
+  defense: 0, // slider 1,2,3 for defense quality (0 if no defense)
   robotProblems: false,
   hasScoutingErrors: false,
   scoutingErrors: "",

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { reviewToggles } from "../constants";
 import { useAppState } from "../state/state";
 import Button from "./inputs/Button";
@@ -9,12 +9,27 @@ import Slider from "./inputs/Slider";
 
 const Review = () => {
   const [state, dispatch] = useAppState();
+  const [didDefense, setDidDefense] = useState(false);
+
   return (
     <div className="flex flex-col xs:flex-row justify-stretch items-stretch w-full h-full p-1 gap-2">
       {/* Toggle Option Section */}
       <div className="flex flex-col border border-dark rounded-lg p-2 gap-5">
         <h1 className="font-bold text-xl">Review</h1>
-        {
+        <Checkbox
+          label={"Defense?"}
+          value={didDefense}
+          onChange={(e) => {
+            if (didDefense) {
+              dispatch({ type: "SET", payload: { defense: 0 } });
+            } else {
+              dispatch({ type: "SET", payload: { defense: 2 } });
+            }
+            setDidDefense(!didDefense);
+          }}
+          className={"text-lg"}
+        ></Checkbox>
+        {didDefense && (
           // defense slider
           <Slider
             label={"Defense Slider"}
@@ -24,7 +39,7 @@ const Review = () => {
             maxDescription={"Best"}
             minDescription={"Worst"}
           />
-        }
+        )}
         {
           // checkboxes
           reviewToggles.map((toggle, index) => (
