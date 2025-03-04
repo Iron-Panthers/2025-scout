@@ -3,6 +3,7 @@ import { version } from "../../package.json";
 import { settingsInfo } from "../state/settingsReducer";
 import { useAppState, useSettings } from "../state/state";
 import Button from "./inputs/Button";
+import DropdownInput from "./inputs/DropdownInput";
 import ShortTextInput from "./inputs/ShortTextInput";
 import ToggleButton from "./inputs/ToggleButton";
 
@@ -28,7 +29,14 @@ const Settings = () => {
               key={infoSection.section}
               className="border-white border-2 flex flex-col m-1 rounded-lg"
             >
-              <div className="text-xl font-bold text-center m-4">
+              <div
+                className={
+                  "text-xl font-bold text-center m-4" +
+                  (infoSection.section === "Memes"
+                    ? " bg-gradient-to-tr from-pink-400 to-violet-700 text-transparent bg-clip-text w-fit mx-auto after:content-['✨']"
+                    : "")
+                }
+              >
                 {infoSection.section}
               </div>
               {infoSection.settings.map((settingInfo, index) => {
@@ -48,6 +56,18 @@ const Settings = () => {
                     ) : settingInfo.type === "string" ? (
                       <ShortTextInput
                         label={settingInfo.name}
+                        value={settings[settingInfo.key]}
+                        onChange={(e) => {
+                          dispatchSettings({
+                            type: "SET",
+                            payload: { [settingInfo.key]: e.target.value },
+                          });
+                        }}
+                      />
+                    ) : settingInfo.type === "dropdown" ? (
+                      <DropdownInput
+                        label={settingInfo.name}
+                        options={settingInfo.options}
                         value={settings[settingInfo.key]}
                         onChange={(e) => {
                           dispatchSettings({

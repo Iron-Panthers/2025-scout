@@ -1,4 +1,4 @@
-import { pre, section } from "framer-motion/client";
+import { option, pre, section } from "framer-motion/client";
 import { version } from "../../package.json";
 const versionArray = version.split(".");
 
@@ -21,6 +21,8 @@ export const initialSettings = {
   googleSheetColNumber: 2,
   rickRoll: false,
   subwaySurf: false,
+  displayBackgroundGame: false,
+  backgroundGame: "BlockBlast",
 };
 
 export const settingsInfo = [
@@ -115,6 +117,32 @@ export const settingsInfo = [
         type: "boolean",
         description:
           "Increase your concentration- please don't do this in a competition",
+      },
+      {
+        name: "Display Background Game",
+        key: "displayBackgroundGame",
+        type: "boolean",
+        description: "Display a game in the background",
+      },
+      {
+        name: "Background Game",
+        key: "backgroundGame",
+        type: "dropdown",
+        options: [
+          {
+            value: "BlockBlast",
+            label: "Block Blast",
+          },
+          {
+            value: "Dino",
+            label: "Dino",
+          },
+          {
+            value: "Minecraft",
+            label: "Minecraft",
+          },
+        ],
+        description: "Play a game in the background",
       },
     ],
   },
