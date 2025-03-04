@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import QRCode from "react-qr-code";
 import { stateToCsv } from "../api/csvApi";
 import { getPastMatches } from "../api/pastMatchesApi";
+import { enableMemes } from "../constants";
 import { useAppState, useSettings } from "../state/state";
 import AddToGoogleSheetButton from "./inputs/AddToGoogleSheetButton";
 import Button from "./inputs/Button";
@@ -55,7 +56,7 @@ const PastMatches = () => {
         <div className="bg-white p-2">
           <QRCode
             value={
-              settings.rickRoll // its just for the memes
+              settings.rickRoll && enableMemes // its just for the memes
                 ? "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
                 : value
             }

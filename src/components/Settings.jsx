@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
 import { version } from "../../package.json";
+import { enableMemes } from "../constants";
 import { settingsInfo } from "../state/settingsReducer";
 import { useAppState, useSettings } from "../state/state";
 import Button from "./inputs/Button";
@@ -24,6 +25,9 @@ const Settings = () => {
       <div className="text-xs mb-4">Version {version}</div>
       <div className="flex flex-col overflow-scroll flex-1">
         {settingsInfo.map((infoSection, index) => {
+          if (enableMemes === false && infoSection.section === "Memes") {
+            return null;
+          }
           return (
             <div
               key={infoSection.section}

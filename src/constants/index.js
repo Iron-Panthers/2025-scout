@@ -36,6 +36,8 @@ const googleAPIConstants = {
     "https://script.google.com/macros/s/AKfycbxj9pjLFR1K_3bG3mgi50MYmYha7iH2D8bIUcsHXfz8l8Kq1_h8o3KikmPb6JDyFEgv3Q/exec",
 };
 
+const enableMemes = true; // weather or not to enable the 'silly' features
+
 const editViewSections = [
   {
     label: "Configuration",
@@ -138,6 +140,7 @@ const editViewSections = [
 
 export {
   editViewSections,
+  enableMemes,
   googleAPIConstants,
   matchLevels,
   modes,
