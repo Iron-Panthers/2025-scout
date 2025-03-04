@@ -41,7 +41,6 @@ const BackgroundGame = () => {
             sandbox="allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-scripts allow-same-origin allow-downloads"
             src="https://games.poki.com/458768/a4e4a244-d11b-4d94-b1d8-deb2dbbaff02?tag=pg-9551b1fb395dc7535d35465bb0dbce1e5a09497f&amp;site_id=3&amp;iso_lang=en&amp;country=US&amp;poki_url=https://poki.com/en/g/dinosaur-game&amp;hoist=yes&amp;nonPersonalized=n&amp;cloudsavegames=n&amp;familyFriendly=n&amp;categories=9,37,389,852,903,1126,1140,1159,1163,1190,1191,1193&amp;experiment=control-959a0db8&amp;special_condition=landing"
             title="Game"
-            class="Clsn52HE2ZzhoBMbiAF6"
           ></iframe>
         ) : settings.backgroundGame === "Minecraft" ? (
           <iframe
@@ -50,9 +49,15 @@ const BackgroundGame = () => {
             width={"100%"}
             height={"100%"}
             src="https://eaglercraft.com/mc/1.8.8/"
+            sandbox="allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-scripts allow-same-origin allow-downloads"
+            scrolling="yes"
             title="Game"
-            class="Clsn52HE2ZzhoBMbiAF6"
-          ></iframe>
+          >
+            <meta
+              name="viewport"
+              content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+            ></meta>
+          </iframe>
         ) : (
           <></>
         )}
