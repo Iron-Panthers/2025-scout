@@ -49,7 +49,7 @@ const BackgroundGame = () => {
             allow="autoplay; fullscreen; camera; focus-without-user-activation *; monetization; gamepad; keyboard-map *; xr-spatial-tracking; clipboard-write; web-share; accelerometer; magnetometer; gyroscope; display-capture"
             width={"100%"}
             height={"100%"}
-            src="https://eaglercraft.com/mc/1.8.8-wasm/"
+            src="https://eaglercraft.com/mc/1.8.8/"
             title="Game"
             class="Clsn52HE2ZzhoBMbiAF6"
           ></iframe>

@@ -27,7 +27,7 @@ const PastMatches = () => {
 
   return (
     <div className="flex flex-col h-full">
-      <div className="flex flex-col xs:flex-row flex-1">
+      <div className="flex flex-col xs:flex-row flex-1 h-3/4">
         {/* Side menu */}
         <div className="overflow-x-auto xs:overflow-y-auto h-1/4 w-full xs:w-1/4 xs:h-full">
           <div className="flex flex-row-reverse xs:flex-col-reverse justify-end gap-1">
