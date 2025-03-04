@@ -1,4 +1,4 @@
-import { pre } from "framer-motion/client";
+import { pre, section } from "framer-motion/client";
 import { version } from "../../package.json";
 const versionArray = version.split(".");
 
@@ -17,6 +17,7 @@ export const initialSettings = {
   googleSheetLink:
     "https://docs.google.com/spreadsheets/d/1rQB0826QaaPNTGK4WtcCZ1NMZiQTvrxvoT7IaoZEcQI/edit",
   googleSheetTab: "CSV Dump",
+  googleSheetTabQual: "Qual",
   googleSheetColNumber: 2,
   rickRoll: false,
   subwaySurf: false,
@@ -24,75 +25,98 @@ export const initialSettings = {
 
 export const settingsInfo = [
   {
-    name: "Dark Mode",
-    key: "darkMode",
-    type: "boolean",
-    description: "Enable dark mode",
+    section: "General Settings",
+    settings: [
+      {
+        name: "Dark Mode",
+        key: "darkMode",
+        type: "boolean",
+        description: "Enable dark mode",
+      },
+      {
+        name: "Auto Increase Match",
+        key: "autoIncreaseMatch",
+        type: "boolean",
+        description: "Automatically increase match number",
+      },
+      {
+        name: "Auto Autofill Team Number",
+        key: "autoAutofillTeamNumber",
+        type: "boolean",
+        description: "Automatically autofill team number when possible",
+      },
+      {
+        name: "Scouting Page Transitions",
+        key: "scoutingPageTransitions",
+        type: "boolean",
+        description: "Enable page transitions",
+      },
+      {
+        name: "Stimulation",
+        key: "stimulation",
+        type: "boolean",
+        description:
+          "Enable input and page stimulation (cool animations for the extra dopamine)",
+      },
+    ],
   },
   {
-    name: "Auto Increase Match",
-    key: "autoIncreaseMatch",
-    type: "boolean",
-    description: "Automatically increase match number",
+    section: "Event Specific Settings",
+    settings: [
+      {
+        name: "Event ID",
+        key: "eventID",
+        type: "string",
+        description:
+          "Enter the event ID. format: YYYY[EventCode] (e.g. 2024cacc)",
+      },
+      {
+        name: "Google Sheet Link",
+        key: "googleSheetLink",
+        type: "string",
+        description:
+          "Insert the link to the current scouting google sheet - make sure it is the correct link",
+      },
+      {
+        name: "Google Sheet Tab",
+        key: "googleSheetTab",
+        type: "string",
+        description:
+          "Insert the name of the tab you want to insert data into for match scouting, should be CSV Dump by default for competition",
+      },
+      {
+        name: "Google Sheet Tab Qual",
+        key: "googleSheetTabQual",
+        type: "string",
+        description:
+          "Insert the name of the tab you want to insert data into for qual scouting, should be Qual by default for competition",
+      },
+      {
+        name: "Google Sheet Column Number",
+        key: "googleSheetColNumber",
+        type: "string",
+        description:
+          "Insert the column number you want to read data from, should be 3 by default for competition",
+      },
+    ],
   },
   {
-    name: "Auto Autofill Team Number",
-    key: "autoAutofillTeamNumber",
-    type: "boolean",
-    description: "Automatically autofill team number when possible",
-  },
-  {
-    name: "Scouting Page Transitions",
-    key: "scoutingPageTransitions",
-    type: "boolean",
-    description: "Enable page transitions",
-  },
-  {
-    name: "Stimulation",
-    key: "stimulation",
-    type: "boolean",
-    description:
-      "Enable input and page stimulation (cool animations for the extra dopamine)",
-  },
-  {
-    name: "Rick Roll",
-    key: "rickRoll",
-    type: "boolean",
-    description: "Enable rick roll - please don't do this in a competition",
-  },
-  {
-    name: "Subway Surf",
-    key: "subwaySurf",
-    type: "boolean",
-    description:
-      "Increase your concentration- please don't do this in a competition",
-  },
-  {
-    name: "Event ID",
-    key: "eventID",
-    type: "string",
-    description: "Enter the event ID. format: YYYY[EventCode] (e.g. 2024cacc)",
-  },
-  {
-    name: "Google Sheet Link",
-    key: "googleSheetLink",
-    type: "string",
-    description:
-      "Insert the link to the current scouting google sheet - make sure it is the correct link",
-  },
-  {
-    name: "Google Sheet Tab",
-    key: "googleSheetTab",
-    type: "string",
-    description:
-      "Insert the name of the tab you want to read data from, should be CSV Dump by default for competition",
-  },
-  {
-    name: "Google Sheet Column Number",
-    key: "googleSheetColNumber",
-    type: "string",
-    description:
-      "Insert the column number you want to read data from, should be 3 by default for competition",
+    section: "Memes",
+    settings: [
+      {
+        name: "Rick Roll",
+        key: "rickRoll",
+        type: "boolean",
+        description: "Enable rick roll - please don't do this in a competition",
+      },
+      {
+        name: "Subway Surf",
+        key: "subwaySurf",
+        type: "boolean",
+        description:
+          "Increase your concentration- please don't do this in a competition",
+      },
+    ],
   },
 ];
 
@@ -119,6 +143,7 @@ export const getSettings = () => {
       ...settings,
       googleSheetLink: initialSettings.googleSheetLink,
       googleSheetTab: initialSettings.googleSheetTab,
+      googleSheetTabQual: initialSettings.googleSheetTabQual,
       googleSheetColNumber: initialSettings.googleSheetColNumber,
       eventID: initialSettings.eventID,
     };

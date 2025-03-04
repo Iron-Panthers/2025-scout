@@ -83,7 +83,9 @@ const AddToGoogleSheetButton = ({ value, className, ...rest }) => {
           submitToGoogleSheet(
             value,
             settings.googleSheetLink,
-            settings.googleSheetTab,
+            state.scoutingType === "qualitative"
+              ? settings.googleSheetTabQual
+              : settings.googleSheetTab,
             settings.googleSheetColNumber
           )
             .then((result) => {
