@@ -17,24 +17,26 @@ const Configure = () => {
   // handle autofilling team number without button press
   // also reset the team numbers if it cant autofill
   useEffect(() => {
-    if (settings.autoAutofillTeamNumber && canAutofillTeamNumber()) {
-      handleTeamNumberAutofill();
-    } else if (settings.autoAutofillTeamNumber) {
-      // if we can't autofill the number than we should reset the team numbers
-      if (state.scoutingType === "qualitative") {
-        dispatch({
-          type: "SET",
-          payload: {
-            qualitativeTeams: [{ team: "" }, { team: "" }, { team: "" }],
-          },
-        });
-      } else {
-        dispatch({
-          type: "SET",
-          payload: {
-            team: "",
-          },
-        });
+    if (navigator.onLine) {
+      if (settings.autoAutofillTeamNumber && canAutofillTeamNumber()) {
+        handleTeamNumberAutofill();
+      } else if (settings.autoAutofillTeamNumber) {
+        // if we can't autofill the number than we should reset the team numbers
+        if (state.scoutingType === "qualitative") {
+          dispatch({
+            type: "SET",
+            payload: {
+              qualitativeTeams: [{ team: "" }, { team: "" }, { team: "" }],
+            },
+          });
+        } else {
+          dispatch({
+            type: "SET",
+            payload: {
+              team: "",
+            },
+          });
+        }
       }
     }
   }, [state.matchNumber, state.matchLevel, state.role]);
@@ -43,6 +45,9 @@ const Configure = () => {
   const handleTeamNumberAutofill = async () => {
     console.log("Autofilling team number");
     try {
+      if (!navigator.onLine) {
+        throw new Error("You must be online to autofill the team number.");
+      }
       if (state.scoutingType === "qualitative") {
         const teamNumbers = await getAllianceNumbersFromMatchInfo(
           state.matchNumber,
