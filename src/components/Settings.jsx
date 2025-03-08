@@ -14,13 +14,15 @@ const Settings = () => {
 
   return (
     <div className="flex flex-col items-center relative overflow-hidden">
-      <Button
-        label={"Back"}
-        className="absolute top-2 left-2"
-        onClick={() => {
-          dispatch({ type: "SET", payload: { mode: "Configure" } });
-        }}
-      />
+      <div className="absolute top-2 left-2">
+        <Button
+          label={"Back"}
+          className="absolute top-2 left-2"
+          onClick={() => {
+            dispatch({ type: "SET", payload: { mode: "Configure" } });
+          }}
+        />
+      </div>
       <div className="text-2xl font-bold mt-4">Settings</div>
       <div className="text-xs mb-4">Version {version}</div>
       <div className="flex flex-col overflow-scroll flex-1">

@@ -1,15 +1,17 @@
-import coralIcon from "./coralIcon.svg";
-import removeAlgaeIcon from "./removeAlgaeIcon.svg";
-import reefDiagram from "./reefDiagram.svg";
 import algaeToNetIcon from "./algaeToNetIcon.svg";
 import algaeToProcessorIcon from "./algaeToProcessorIcon.svg";
+import ben from "./ben.jpg";
 import cageDiagram from "./cageDiagram.svg";
+import coralIcon from "./coralIcon.svg";
+import reefDiagram from "./reefDiagram.svg";
+import removeAlgaeIcon from "./removeAlgaeIcon.svg";
 
 export {
-  coralIcon,
-  removeAlgaeIcon,
-  reefDiagram,
   algaeToNetIcon,
   algaeToProcessorIcon,
+  ben,
   cageDiagram,
+  coralIcon,
+  reefDiagram,
+  removeAlgaeIcon,
 };

@@ -1,5 +1,6 @@
 import { motion, stagger, useAnimate } from "framer-motion";
 import React, { useRef } from "react";
+import { ben } from "../../assets";
 import { useSettings } from "../../state/state";
 
 /**
@@ -36,7 +37,7 @@ const Button = ({
     turquoise: "bg-teal-500 border-teal-500",
   };
   const baseStyles =
-    "text-white bg-opacity-90 dark:bg-opacity-50 hover:bg-opacity-90 border-2 font-bold py-2 px-4 rounded disabled:bg-gray-400 disabled:border-gray-500";
+    "text-white bg-opacity-90 dark:bg-opacity-50 hover:bg-opacity-90 border-2 font-bold py-2 px-4 rounded disabled:bg-gray-400 disabled:border-gray-500 relative ";
 
   const handleClick = (e) => {
     if (onClick) {
@@ -60,6 +61,12 @@ const Button = ({
       }
       {...rest}
     >
+      {settings.benMode && (
+        <img
+          src={ben}
+          className="absolute w-full h-full left-0 top-0 opacity-50"
+        ></img>
+      )}
       {label}
       {children}
     </motion.button>

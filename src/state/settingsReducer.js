@@ -23,6 +23,7 @@ export const initialSettings = {
   subwaySurf: false,
   displayBackgroundGame: false,
   backgroundGame: "BlockBlast",
+  benMode: true,
 };
 
 export const settingsInfo = [
@@ -143,6 +144,12 @@ export const settingsInfo = [
           },
         ],
         description: "Play a game in the background",
+      },
+      {
+        name: "Ben mode",
+        key: "benMode",
+        type: "boolean",
+        description: "Enable the most majestic scouting app mode",
       },
     ],
   },
