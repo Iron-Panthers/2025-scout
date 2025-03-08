@@ -23,7 +23,7 @@ export const initialSettings = {
   subwaySurf: false,
   displayBackgroundGame: false,
   backgroundGame: "BlockBlast",
-  benMode: true,
+  benMode: false,
 };
 
 export const settingsInfo = [
