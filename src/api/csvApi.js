@@ -52,8 +52,18 @@ const flattenQualState = (state) => {
       }, obj);
     } else if (typeof val === "object" && val !== null) {
       Object.entries(val).forEach(([key2, val2]) => {
-        obj[`${key}-${key2}`] = val2;
+        if (val2 === true) {
+          obj[`${key}-${key2}`] = "TRUE";
+        } else if (val2 === false) {
+          obj[`${key}-${key2}`] = "FALSE";
+        } else {
+          obj[`${key}-${key2}`] = val2;
+        }
       });
+    } else if (val === true) {
+      obj[key] = "TRUE";
+    } else if (val === false) {
+      obj[key] = "FALSE";
     } else {
       obj[key] = val;
     }
@@ -69,8 +79,18 @@ export const flattenState = (state) => {
       obj[key] = stringified;
     } else if (typeof val === "object" && val !== null) {
       Object.entries(val).forEach(([key2, val2]) => {
-        obj[`${key}-${key2}`] = val2;
+        if (val2 === true) {
+          obj[`${key}-${key2}`] = "TRUE";
+        } else if (val2 === false) {
+          obj[`${key}-${key2}`] = "FALSE";
+        } else {
+          obj[`${key}-${key2}`] = val2;
+        }
       });
+    } else if (val === true) {
+      obj[key] = "TRUE";
+    } else if (val === false) {
+      obj[key] = "FALSE";
     } else {
       obj[key] = val;
     }
@@ -83,8 +103,10 @@ export const stateToCsv = (state) => {
   const flattened = flattenState(filtered);
 
   console.log("Keys for Rain (HI RAIN!!!)", Object.keys(flattened));
+  console.log("the entire state", flattened);
 
   const csv = json2csv(flattened, { prependHeader: false });
+  console.log("csv", csv);
   return csv;
 };
 
