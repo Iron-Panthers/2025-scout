@@ -20,24 +20,16 @@ const Review = () => {
           label={"Defense?"}
           value={didDefense}
           onChange={(e) => {
-            if (didDefense) {
-              dispatch({ type: "SET", payload: { defense: 0 } });
-            } else {
-              dispatch({ type: "SET", payload: { defense: 2 } });
-            }
             setDidDefense(!didDefense);
           }}
           className={"text-lg"}
         ></Checkbox>
         {didDefense && (
           // defense slider
-          <Slider
-            label={"Defense Slider"}
+          <LongTextInput
             stateProp={"defense"}
-            maxValue={3}
-            minValue={1}
-            maxDescription={"Best"}
-            minDescription={"Worst"}
+            placeholder={"Enter details about defense and its quality here"}
+            className={"text-sm flex-grow"}
           />
         )}
         {
