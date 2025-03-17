@@ -24,7 +24,13 @@ const Endgame = () => {
           dispatch({
             type: "SET_IN_PHASE",
             phase: "endgame",
-            payload: { park: true },
+            payload: {
+              park: true,
+              climbSuccessful:
+                state.endgame.climbSuccessful === true
+                  ? false
+                  : state.endgame.climbSuccessful,
+            },
           });
         }}
       />

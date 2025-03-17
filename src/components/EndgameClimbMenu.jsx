@@ -143,7 +143,11 @@ const EndgameClimbMenu = () => {
               dispatch({
                 type: "SET_IN_PHASE",
                 phase: "endgame",
-                payload: { climbSuccessful: true, attemptedClimb: true },
+                payload: {
+                  climbSuccessful: true,
+                  attemptedClimb: true,
+                  park: false,
+                },
               });
             }
           }}
