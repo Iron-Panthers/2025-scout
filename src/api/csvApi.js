@@ -4,8 +4,31 @@ import { csvApi } from "../../package.json";
 
 // This is intended to be a failsafe and added layer of abstraction between our state and what ends up going into the csv
 // If I'm stupid and accidentally mess up the state last minute (maybe change the position of a key or something), this will make it so that 'hopefully' it shouldn't effect our csv output
-export const filterState = (state) => {
+export const filterState = (inputState) => {
+  const state = {
+    ...inputState,
+    ...inputState.auto,
+    ...inputState.teleop,
+    ...inputState.endgame,
+  };
+
   const isQualitative = state.scoutingType === "qualitative";
+
+  // a little bit of buffer changing stuff
+  // capitalizing Shallow and Deep and just putting nothing if not selected
+  state.endgame.climbingCage =
+    state.endgame.climbingCage === "shallow" ||
+    state.endgame.climbingCage === "Shallow"
+      ? "Shallow"
+      : state.endgame.climbingCage === "deep" ||
+        state.endgame.climbingCage === "Deep"
+      ? "Deep"
+      : "";
+
+  state.endgame.climbSuccessful =
+    state.endgame.climbSuccessful === undefined
+      ? "FALSE"
+      : state.endgame.climbSuccessful;
 
   // things we want in both modes
   const both = {
