@@ -13,7 +13,7 @@ export const initialSettings = {
   autoAutofillTeamNumber: true,
   scoutingPageTransitions: true,
   stimulation: false,
-  eventID: "2025cave",
+  eventID: "2025azgl",
   googleSheetLink:
     "https://docs.google.com/spreadsheets/d/1I7dazKdnZ1dcHby-2VKRmZgPTHm8ko7mgelNEeTV998/edit",
   googleSheetTab: "CSV Dump",
