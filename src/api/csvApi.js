@@ -30,6 +30,9 @@ export const filterState = (inputState) => {
       ? "FALSE"
       : state.endgame.climbSuccessful;
 
+  state.endgame.climbStartTime =
+    climbStartTime === undefined ? "" : climbStartTime;
+
   // things we want in both modes
   const both = {
     csvVersion: csvApi,
