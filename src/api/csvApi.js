@@ -31,7 +31,9 @@ export const filterState = (inputState) => {
       : state.endgame.climbSuccessful;
 
   state.endgame.climbStartTime =
-    climbStartTime === undefined ? "" : climbStartTime;
+    state.endgame.climbStartTime === undefined
+      ? ""
+      : state.endgame.climbStartTime;
 
   // things we want in both modes
   const both = {
