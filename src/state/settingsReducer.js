@@ -15,7 +15,7 @@ export const initialSettings = {
   stimulation: false,
   eventID: "2025azgl",
   googleSheetLink:
-    "https://docs.google.com/spreadsheets/d/1I7dazKdnZ1dcHby-2VKRmZgPTHm8ko7mgelNEeTV998/edit",
+    "https://docs.google.com/spreadsheets/d/1kSr_ngBBaN168NIqt-iZQvQrdVbuV8SCxtqtAYdoPJg/edit",
   googleSheetTab: "CSV Dump",
   googleSheetTabQual: "Qual",
   googleSheetColNumber: 2,
