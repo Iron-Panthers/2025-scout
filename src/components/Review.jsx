@@ -9,7 +9,7 @@ import Slider from "./inputs/Slider";
 
 const Review = () => {
   const [state, dispatch] = useAppState();
-  const [didDefense, setDidDefense] = useState(false);
+  const [didDefense, setDidDefense] = useState(state.defense !== "");
 
   return (
     <div className="flex flex-col xs:flex-row justify-stretch items-stretch w-full h-full p-1 gap-2">
