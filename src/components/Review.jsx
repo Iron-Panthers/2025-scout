@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { reviewToggles } from "../constants";
 import { useAppState } from "../state/state";
 import Button from "./inputs/Button";
@@ -21,6 +21,12 @@ const Review = () => {
           value={didDefense}
           onChange={(e) => {
             setDidDefense(!didDefense);
+            if (!didDefense) {
+              dispatch({
+                type: "SET",
+                payload: { defense: "" },
+              });
+            }
           }}
           className={"text-lg"}
         ></Checkbox>
@@ -71,7 +77,14 @@ const Review = () => {
           }}
           className={"flex-1"}
         />
-        <NextButton className={"flex-1"} />
+        <NextButton
+          className={"flex-1"}
+          disabled={
+            state.comments.length < 5 ||
+            (didDefense ? state.defense.length < 5 : false)
+          }
+          disabledMessage={"Comments need more than 5 characters"}
+        />
       </div>
     </div>
   );

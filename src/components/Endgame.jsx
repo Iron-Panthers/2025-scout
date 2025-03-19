@@ -39,7 +39,7 @@ const Endgame = () => {
       <Button
         color="green"
         label={"Review"}
-        className={"min-w-1/6 h-[10%] xs:h-full"}
+        className={"w-1/6 h-[10%] xs:h-full"}
         onClick={() => {
           dispatch({ type: "NEXT_MODE" });
         }}

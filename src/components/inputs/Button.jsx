@@ -68,12 +68,16 @@ const Button = ({
           className="absolute w-full h-full left-0 top-0 opacity-50"
         ></img>
       )}
-      {label}
-      {rest.disabled && disabledMessage !== null && (
-        <div className="text-xs absolute bottom-0 left-0 w-full p-2 font-normal">
-          {disabledMessage}
+      <div className="relative">
+        <div className={rest.disabled && disabledMessage ? "hidden" : ""}>
+          {label}
         </div>
-      )}
+        {rest.disabled && disabledMessage !== null && (
+          <div className="text-xs font-normal text-center">
+            {disabledMessage}
+          </div>
+        )}
+      </div>
       {children}
     </motion.button>
   );
