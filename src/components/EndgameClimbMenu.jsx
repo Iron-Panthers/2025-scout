@@ -6,6 +6,15 @@ import ShortTextInput from "./inputs/ShortTextInput";
 const EndgameClimbMenu = () => {
   const [state, dispatch] = useAppState();
 
+  const attemptedClimb = (overrideVals) => {
+    const endgame = { ...state.endgame, ...overrideVals };
+    return (
+      endgame.climbStartTime ||
+      endgame.climbSuccessful !== undefined ||
+      endgame.climbingCage !== undefined
+    );
+  };
+
   const handleAttemptedClimb = () => {
     dispatch({
       type: "SET_IN_PHASE",
@@ -24,7 +33,15 @@ const EndgameClimbMenu = () => {
         stateProp={"climbStartTime"}
         phase={"endgame"}
         onChange={(e) => {
-          handleAttemptedClimb();
+          dispatch({
+            type: "SET_IN_PHASE",
+            phase: "endgame",
+            payload: {
+              attemptedClimb: attemptedClimb({
+                climbStartTime: e.target.value,
+              }),
+            },
+          });
         }}
       />
       <div className="grid grid-rows-2 grid-flow-col gap-2 h-2/3">
@@ -45,8 +62,9 @@ const EndgameClimbMenu = () => {
                 phase: "endgame",
                 payload: {
                   climbingCage: undefined,
-                  attemptedClimb:
-                    state.endgame.climbSuccessful !== undefined ? true : false,
+                  attemptedClimb: attemptedClimb({ climbingCage: undefined })
+                    ? true
+                    : false,
                 },
               });
             } else {
@@ -56,6 +74,7 @@ const EndgameClimbMenu = () => {
                 payload: { climbingCage: "shallow", attemptedClimb: true },
               });
             }
+            console.log(state);
           }}
         />
         <Button
@@ -75,8 +94,9 @@ const EndgameClimbMenu = () => {
                 phase: "endgame",
                 payload: {
                   climbingCage: undefined,
-                  attemptedClimb:
-                    state.endgame.climbSuccessful !== undefined ? true : false,
+                  attemptedClimb: attemptedClimb({ climbingCage: undefined })
+                    ? true
+                    : false,
                 },
               });
             } else {
@@ -105,8 +125,9 @@ const EndgameClimbMenu = () => {
                 phase: "endgame",
                 payload: {
                   climbSuccessful: undefined,
-                  attemptedClimb:
-                    state.endgame.climbSuccessful !== undefined ? true : false,
+                  attemptedClimb: attemptedClimb({ climbSuccessful: undefined })
+                    ? true
+                    : false,
                 },
               });
             } else {
@@ -135,8 +156,9 @@ const EndgameClimbMenu = () => {
                 phase: "endgame",
                 payload: {
                   climbSuccessful: undefined,
-                  attemptedClimb:
-                    state.endgame.climbSuccessful !== undefined ? true : false,
+                  attemptedClimb: attemptedClimb({ climbSuccessful: undefined })
+                    ? true
+                    : false,
                 },
               });
             } else {

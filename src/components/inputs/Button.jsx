@@ -24,6 +24,7 @@ const Button = ({
   className,
   children,
   animate = true, // weather it animates (doesn't if the setting disable stimulation)
+  disabledMessage,
   ...rest
 }) => {
   const [settings] = useSettings();
@@ -68,6 +69,11 @@ const Button = ({
         ></img>
       )}
       {label}
+      {rest.disabled && disabledMessage !== null && (
+        <div className="text-xs absolute bottom-0 left-0 w-full p-2 font-normal">
+          {disabledMessage}
+        </div>
+      )}
       {children}
     </motion.button>
   );

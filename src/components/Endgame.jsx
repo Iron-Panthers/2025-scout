@@ -43,6 +43,15 @@ const Endgame = () => {
         onClick={() => {
           dispatch({ type: "NEXT_MODE" });
         }}
+        disabled={
+          state.endgame.attemptedClimb &&
+          (state.endgame.climbSuccessful == undefined ||
+            !state.endgame.climbingCage ||
+            !state.endgame.climbStartTime)
+        } // make sure to disable it if we don't have the adequate information
+        disabledMessage={
+          "Make sure that you enter all of the climbing information"
+        }
       />
     </div>
   );
