@@ -27,6 +27,7 @@ const BackgroundGame = () => {
             frameborder="0"
             border="0"
             class="iframe-default"
+            allow="autoplay; fullscreen; camera; focus-without-user-activation *; monetization; gamepad; keyboard-map *; xr-spatial-tracking; clipboard-write; web-share; accelerometer; magnetometer; gyroscope; display-capture"
             src="https://block-blast.io/game/block-blast/"
           ></iframe>
         ) : settings.backgroundGame === "Dino" ? (
