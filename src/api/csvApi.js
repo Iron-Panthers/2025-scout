@@ -60,6 +60,7 @@ export const filterState = (inputState) => {
     hasScoutingErrors: state.hasScoutingErrors,
     scoutingErrors: state.scoutingErrors,
     comments: state.comments,
+    xFactor: state.xFactor,
   };
 
   return {
