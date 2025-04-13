@@ -22,7 +22,7 @@ const roles = [
 const matchLevels = [
   { value: "practice", label: "Practice" },
   { value: "qualification", label: "Qualification" },
-  { value: "semifinals", label: "Semifinals" },
+  { value: "playoffs", label: "Playoffs" },
   { value: "finals", label: "Finals" },
 ];
 
