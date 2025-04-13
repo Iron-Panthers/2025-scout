@@ -3,6 +3,7 @@ import { reviewToggles } from "../constants";
 import { useAppState } from "../state/state";
 import Button from "./inputs/Button";
 import NextButton from "./inputs/button_variants/NextButton";
+import XFactorButton from "./inputs/button_variants/XFactorButton";
 import Checkbox from "./inputs/Checkbox";
 import LongTextInput from "./inputs/LongTextInput";
 import Slider from "./inputs/Slider";
@@ -77,6 +78,7 @@ const Review = () => {
           }}
           className={"flex-1"}
         />
+        <XFactorButton className={"flex-1"} />
         <NextButton
           className={"flex-1"}
           disabled={

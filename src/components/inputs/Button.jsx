@@ -38,7 +38,7 @@ const Button = ({
     turquoise: "bg-teal-500 border-teal-500",
   };
   const baseStyles =
-    "text-white bg-opacity-90 dark:bg-opacity-50 hover:bg-opacity-90 border-2 font-bold py-2 px-4 rounded disabled:bg-gray-400 disabled:border-gray-500 relative ";
+    "text-white bg-opacity-90 dark:bg-opacity-50 hover:bg-opacity-90 border-2 font-bold py-2 rounded disabled:bg-gray-400 disabled:border-gray-500 relative ";
 
   const handleClick = (e) => {
     if (onClick) {
@@ -68,7 +68,7 @@ const Button = ({
           className="absolute w-full h-full left-0 top-0 opacity-50"
         ></img>
       )}
-      <div className="relative">
+      <div className="relative mx-auto">
         <div className={rest.disabled && disabledMessage ? "hidden" : ""}>
           {label}
         </div>

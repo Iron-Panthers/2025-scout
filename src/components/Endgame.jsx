@@ -12,14 +12,14 @@ const Endgame = () => {
       <Button
         color="blue"
         label={"Back"}
-        className={"xs:min-w-1/12 h-[10%] xs:h-full"}
+        className={"xs:w-1/12 h-[10%] xs:h-full"}
         onClick={() => dispatch({ type: "SET_PHASE", phase: "teleop" })}
       />
       <Button
         color="amber"
         label={state.endgame.park ? "Parked" : "Park?"}
         disabled={state.endgame.park}
-        className={"min-w-1/6 h-[10%] xs:h-full"}
+        className={"w-1/6 h-[10%] xs:h-full"}
         onClick={() => {
           dispatch({
             type: "SET_IN_PHASE",

@@ -107,7 +107,7 @@ const Configure = () => {
   return (
     <div className="h-full w-full flex flex-col xs:flex-row text-lg">
       {/* Main Body */}
-      <div className="grow flex flex-col p-1flex-1 overflow-scroll">
+      <div className="grow flex flex-col p-1flex-1 overflow-auto">
         {/* Scouter Info Section */}
         <div className="border-2 border-dark dark:border-light rounded-lg">
           <div className="text-sm ml-1 underline">Scouter Information</div>
