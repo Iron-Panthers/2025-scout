@@ -69,6 +69,7 @@ export const initialState = {
   hasScoutingErrors: false,
   scoutingErrors: "",
   comments: "",
+  xFactor: false, // did the robot have an x factor
 
   history: [], // add history array to store previous states
 };
