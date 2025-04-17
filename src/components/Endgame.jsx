@@ -19,7 +19,7 @@ const Endgame = () => {
         color="amber"
         label={state.endgame.park ? "Parked" : "Park?"}
         disabled={state.endgame.park}
-        className={"w-1/6 h-[10%] xs:h-full"}
+        className={"xs:w-1/6 h-[10%] xs:h-full"}
         onClick={() => {
           dispatch({
             type: "SET_IN_PHASE",
@@ -39,7 +39,7 @@ const Endgame = () => {
       <Button
         color="green"
         label={"Review"}
-        className={"w-1/6 h-[10%] xs:h-full"}
+        className={"xs:w-1/6 h-[10%] xs:h-full"}
         onClick={() => {
           dispatch({ type: "NEXT_MODE" });
         }}
