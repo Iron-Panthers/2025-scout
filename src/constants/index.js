@@ -123,6 +123,11 @@ const editViewSections = [
             type: "checkbox",
           },
           {
+            key: "climbStartTime",
+            label: "Climb Start Time",
+            type: "number",
+          },
+          {
             key: "climbingCage",
             label: "Climbing Cage",
             type: "dropdown",
