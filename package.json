@@ -1,7 +1,7 @@
 {
   "name": "2025-scout",
   "private": true,
-  "version": "1.6.4",
+  "version": "1.7.0",
   "csvApi": "3",
   "type": "module",
   "scripts": {
