@@ -53,7 +53,7 @@ const Configure = () => {
           state.matchNumber,
           state.matchLevel,
           state.alliance,
-          settings.eventID
+          settings.eventID,
         );
         for (let i = 0; i < teamNumbers.length; i++) {
           dispatch({
@@ -64,13 +64,38 @@ const Configure = () => {
         }
       } else {
         const teamIndex = state.role[state.role.length - 1] - 1;
+        const initialMatchInfo = {
+          matchNumber: state.matchNumber,
+          matchLevel: state.matchLevel,
+          alliance: state.alliance,
+          teamIndex: teamIndex,
+        };
         const teamNumber = await getTeamNumberFromMatchInfo(
           state.matchNumber,
           state.matchLevel,
           state.alliance,
           teamIndex,
-          settings.eventID
+          settings.eventID,
         );
+        const matchInfoAfterFetch = {
+          matchNumber: state.matchNumber,
+          matchLevel: state.matchLevel,
+          alliance: state.alliance,
+          teamIndex: teamIndex,
+        };
+        if (
+          initialMatchInfo.matchNumber !== matchInfoAfterFetch.matchNumber ||
+          initialMatchInfo.matchLevel !== matchInfoAfterFetch.matchLevel ||
+          initialMatchInfo.alliance !== matchInfoAfterFetch.alliance ||
+          initialMatchInfo.teamIndex !== matchInfoAfterFetch.teamIndex
+        ) {
+          // sanity check to see if the input has changed -- if so we cant use the autofilled match number
+          console.log(
+            "Current inputs have changed since fetch so cannot continue autofilling fro match info: ",
+            initialMatchInfo,
+          );
+          return;
+        }
         dispatch({
           type: "SET",
           payload: { team: teamNumber },
