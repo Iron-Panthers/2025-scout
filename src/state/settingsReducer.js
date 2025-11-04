@@ -13,9 +13,9 @@ export const initialSettings = {
   autoAutofillTeamNumber: true,
   scoutingPageTransitions: true,
   stimulation: false,
-  eventID: "2025cc",
+  eventID: "2025mttd",
   googleSheetLink:
-    "https://docs.google.com/spreadsheets/d/1ziuCls0Y7606HNLM8NuE9hl4xIRTsbCsWu9vmwebB5k/edit",
+    "https://docs.google.com/spreadsheets/d/17wQmkMoRvvsYLeEydcQS__I6QH65M6vQ9QU96TqRr7M/edit",
   googleSheetTab: "CSV Dump",
   googleSheetTabQual: "Qual",
   googleSheetColNumber: 2,
